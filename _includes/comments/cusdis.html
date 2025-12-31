@@ -1,0 +1,152 @@
+<!-- Cusdis Comments -->
+<div class="comments-section mt-4 pt-4">
+  <h2 class="mb-3"><i class="fas fa-comments me-2"></i>Comments</h2>
+  
+  <!-- Cusdis div with theme attributes -->
+  <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="6604d095-543f-4200-81fd-5569719ce021"
+    data-page-id="{{ page.url | slugify }}"
+    data-page-url="{{ page.url | absolute_url }}"
+    data-page-title="{{ page.title | escape }}"
+  ></div>
+  
+</div>
+
+<!-- Load Cusdis script -->
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+
+<script>
+  (function() {
+    // Detect current theme
+    function getCurrentTheme() {
+      var htmlMode = document.documentElement.getAttribute('data-mode');
+      if (htmlMode === 'light') return 'light';
+      if (htmlMode === 'dark') return 'dark';
+      
+      try {
+        var storedMode = localStorage.getItem('mode');
+        if (storedMode) return storedMode;
+      } catch(e) {}
+      
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
+      }
+      
+      return 'light';
+    }
+    
+    // Set initial theme
+    function setInitialTheme() {
+      var thread = document.getElementById('cusdis_thread');
+      if (thread) {
+        var theme = getCurrentTheme();
+        thread.setAttribute('data-theme', theme);
+      }
+    }
+    
+    // Update Cusdis theme
+    function updateCusdisTheme() {
+      var thread = document.getElementById('cusdis_thread');
+      if (!thread) return;
+      
+      var theme = getCurrentTheme();
+      var currentTheme = thread.getAttribute('data-theme');
+      
+      if (currentTheme !== theme) {
+        thread.setAttribute('data-theme', theme);
+        
+        // Trigger Cusdis reload
+        if (window.CUSDIS && window.CUSDIS.setTheme) {
+          window.CUSDIS.setTheme(theme);
+        } else if (window.CUSDIS && window.CUSDIS.initial) {
+          setTimeout(function() {
+            window.CUSDIS.initial();
+          }, 100);
+        }
+      }
+    }
+    
+    // Set theme immediately
+    setInitialTheme();
+    
+    // Watch for theme changes
+    var observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.attributeName === 'data-mode') {
+          updateCusdisTheme();
+        }
+      });
+    });
+    
+    observer.observe(document.documentElement, { 
+      attributes: true, 
+      attributeFilter: ['data-mode'] 
+    });
+    
+    // Update after Cusdis loads
+    window.addEventListener('load', function() {
+      setTimeout(updateCusdisTheme, 1000);
+    });
+  })();
+</script>
+
+<style>
+  .comments-section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color, #e9ecef);
+  }
+  
+  .comments-section h2 {
+    font-size: 1.4rem;
+    color: var(--heading-color, #212529);
+    margin-bottom: 1rem;
+  }
+  
+  #cusdis_thread {
+    width: 100%;
+    min-height: 200px;
+    transition: all 0.3s ease;
+  }
+  
+  #cusdis_thread iframe {
+    width: 100% !important;
+    border: none !important;
+    transition: filter 0.3s ease !important;
+  }
+  
+  /* Light theme - default */
+  [data-mode="light"] #cusdis_thread iframe {
+    filter: none;
+  }
+  
+  /* Dark theme - apply color adjustments */
+  [data-mode="dark"] #cusdis_thread iframe {
+    /* Invert colors and adjust hue for better dark theme compatibility */
+    filter: invert(0.9) hue-rotate(180deg);
+    background: #1b1b1e;
+  }
+  
+  /* Prevent double-inversion of images in dark mode */
+  [data-mode="dark"] #cusdis_thread iframe img {
+    filter: invert(1) hue-rotate(180deg);
+  }
+  
+  /* Additional parent container styling */
+  [data-mode="dark"] .comments-section {
+    border-top-color: #3e3e42;
+  }
+  
+  [data-mode="dark"] .comments-section h2 {
+    color: #e8eaed;
+  }
+  
+  /* Smooth transitions */
+  #cusdis_thread, 
+  #cusdis_thread iframe,
+  .comments-section {
+    transition: all 0.3s ease;
+  }
+</style>
+

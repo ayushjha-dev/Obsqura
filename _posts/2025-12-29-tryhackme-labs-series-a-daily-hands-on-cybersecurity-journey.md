@@ -1,6 +1,6 @@
 ---
 title: "TryHackMe Labs Series: A Daily Hands-On Cybersecurity Journey"
-date: 2025-12-29 14:30:00 +0530
+date: 2025-12-31 14:30:00 +0530
 categories: [Ethical Hacking, Tutorials, CTF Writeups]
 tags: [tryhackme, pentesting, ethical-hacking, cybersecurity, learning-path]
 author: ayushjha

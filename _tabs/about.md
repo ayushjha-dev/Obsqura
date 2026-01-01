@@ -20,7 +20,7 @@ order: 4
 
 ## 🚀 The Obsqura Story
 
-Welcome to **Obsqura**. I’m **Ayush** (aka *Black Hat*), a Cyber Security undergrad at **Lamrin Tech Skills University**.
+Welcome to **Obsqura**. I’m **Ayush** (aka *Mr. Xploit*), a Cyber Security undergrad at **Lamrin Tech Skills University**.
 
 I started Obsqura with a simple mission: **to bridge the gap between abstract theory and real-world defense.** In an industry full of noise, Obsqura is my signal—a place where I document the hidden ("obscure") mechanisms of digital systems and the operations ("ops") used to secure them.
 

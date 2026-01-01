@@ -1,6 +1,6 @@
 ---
 title: "Day 1: Try Hack Me Account Setup — The Complete Beginner's Guide"
-date: 2025-12-31 11:25:00 +0530
+date: 2026-01-01 11:25:00 +0530
 categories: [Ethical Hacking, Tutorials]
 tags: [tryhackme, beginner, cybersecurity, setup]
 author: ayushjha

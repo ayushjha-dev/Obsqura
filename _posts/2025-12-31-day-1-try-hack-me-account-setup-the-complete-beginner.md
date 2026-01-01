@@ -45,7 +45,7 @@ Once you reach the Try Hack Me homepage, you will notice a **"Join for Free"** o
 
 Clicking on the "Join for Free" button redirects you to the Try Hack Me registration page, where the account creation process begins. At this stage, the platform prepares you to choose a sign-up method based on your preference.
 
-![TryHackMe Homepage](https://raw.githubusercontent.com/ayushjha-dev/Obsqura/main/assets/img/posts/20251231/3-thm-homepage.jpg)
+![TryHackMe Homepage](https://raw.githubusercontent.com/ayushjha-dev/Obsqura/refs/heads/main/assets/img/posts/20251231/3-landing-page.jpg)
 
 ### ✨ Step 3: Choosing a Sign-Up Method on Try Hack Me
 
@@ -64,6 +64,8 @@ After successfully registering, you will be redirected to the Try Hack Me homepa
 
 This step is important because your Try Hack Me profile represents your public identity on the platform and reflects your professionalism within the cybersecurity community.
 
+![TryHackMe Manage Account Page](https://raw.githubusercontent.com/ayushjha-dev/Obsqura/main/assets/img/posts/20251231/6-manage-account.jpg)
+
 ### 🛠️ Step 5: Setting a Professional Username and Completing Your Profile
 
 Inside the profile section, you should immediately update your **username**, as it is publicly visible across the platform. Your username should be clean, professional, and preferably related to cybersecurity.
@@ -75,8 +77,6 @@ Inside the profile section, you should immediately update your **username**, as 
 Along with the username, you should add a short professional bio describing your interest in cybersecurity or ethical hacking. Selecting the skill level as **Beginner** is recommended for Day 1 learners. Adding a profile picture is optional but strongly recommended, as it enhances the authenticity and completeness of your profile.
 
 ![TryHackMe User Profile Page](https://raw.githubusercontent.com/ayushjha-dev/Obsqura/main/assets/img/posts/20251231/5-profile-page.jpg)
-
-![TryHackMe Manage Account Page](https://raw.githubusercontent.com/ayushjha-dev/Obsqura/main/assets/img/posts/20251231/6-manage-account.jpg)
 
 ---
 

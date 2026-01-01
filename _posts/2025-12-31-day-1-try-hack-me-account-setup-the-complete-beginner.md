@@ -37,7 +37,7 @@ The first step in creating a Try Hack Me account is opening a secure web browser
 
 Clicking on the official Try Hack Me result will take you to the platform's homepage, where you can explore the interface and learning environment before signing up.
 
-![TryHackMe Google Search Results](https://raw.githubusercontent.com/ayushjha-24/obsquara-assets/main/images/posts/20251231/2-google-search.jpg)
+![TryHackMe Google Search Results](https://raw.githubusercontent.com/ayushjha-dev/Obsqura/main/assets/img/posts/20251231/2-google-search.jpg)
 
 ### ➡️ Step 2: Navigating to the Try Hack Me Registration Page
 
@@ -45,7 +45,7 @@ Once you reach the Try Hack Me homepage, you will notice a **"Join for Free"** o
 
 Clicking on the "Join for Free" button redirects you to the Try Hack Me registration page, where the account creation process begins. At this stage, the platform prepares you to choose a sign-up method based on your preference.
 
-![TryHackMe Homepage](https://raw.githubusercontent.com/ayushjha-24/obsquara-assets/main/images/posts/20251231/3-thm-homepage.jpg)
+![TryHackMe Homepage](https://raw.githubusercontent.com/ayushjha-dev/Obsqura/main/assets/img/posts/20251231/3-thm-homepage.jpg)
 
 ### ✨ Step 3: Choosing a Sign-Up Method on Try Hack Me
 
@@ -56,7 +56,7 @@ On the registration page, Try Hack Me offers two secure sign-up methods: **Googl
 
 Both methods are safe, and users should select the one that best fits their security preferences.
 
-![TryHackMe Sign-Up Modal](https://raw.githubusercontent.com/ayushjha-24/obsquara-assets/main/images/posts/20251231/4-signup-modal.jpg)
+![TryHackMe Sign-Up Modal](https://raw.githubusercontent.com/ayushjha-dev/Obsqura/main/assets/img/posts/20251231/4-signup-modal.jpg)
 
 ### 👤 Step 4: Accessing the Try Hack Me Profile After Registration
 
@@ -74,9 +74,9 @@ Inside the profile section, you should immediately update your **username**, as 
 
 Along with the username, you should add a short professional bio describing your interest in cybersecurity or ethical hacking. Selecting the skill level as **Beginner** is recommended for Day 1 learners. Adding a profile picture is optional but strongly recommended, as it enhances the authenticity and completeness of your profile.
 
-![TryHackMe User Profile Page](https://raw.githubusercontent.com/ayushjha-24/obsquara-assets/main/images/posts/20251231/5-profile-page.jpg)
+![TryHackMe User Profile Page](https://raw.githubusercontent.com/ayushjha-dev/Obsqura/main/assets/img/posts/20251231/5-profile-page.jpg)
 
-![TryHackMe Manage Account Page](https://raw.githubusercontent.com/ayushjha-24/obsquara-assets/main/images/posts/20251231/6-manage-account.jpg)
+![TryHackMe Manage Account Page](https://raw.githubusercontent.com/ayushjha-dev/Obsqura/main/assets/img/posts/20251231/6-manage-account.jpg)
 
 ---
 
@@ -86,7 +86,7 @@ Try Hack Me offers both **Free** and **Premium** plans. The Free Plan includes l
 
 The Premium Plan unlocks all rooms, advanced learning paths, certifications, and hands-on labs designed for intermediate and advanced learners. While premium access offers additional value, it is not required on Day 1. Beginners are advised to focus on consistency and fundamentals before considering an upgrade.
 
-![TryHackMe Pricing Plans](https://raw.githubusercontent.com/ayushjha-24/obsquara-assets/main/images/posts/20251231/7-pricing-plans.jpg)
+![TryHackMe Pricing Plans](https://raw.githubusercontent.com/ayushjha-dev/Obsqura/main/assets/img/posts/20251231/7-pricing-plans.jpg)
 
 ### 🚧 Common Beginner Mistakes to Avoid When Starting
 
@@ -100,7 +100,7 @@ By the end of Day 1, your Try Hack Me account should be successfully created, yo
 
 On **Day 2**, the next blog in this Try Hack Me series will focus on the **Welcome Lab**, where you will learn how Try Hack Me rooms work, interact with your first tasks, and begin hands-on cybersecurity practice.
 
-![TryHackMe Welcome Lab](https://raw.githubusercontent.com/ayushjha-24/obsquara-assets/main/images/posts/20251231/8-welcome-lab.jpg)
+![TryHackMe Welcome Lab](https://raw.githubusercontent.com/ayushjha-dev/Obsqura/main/assets/img/posts/20251231/8-welcome-lab.jpg)
 
 ---
 

@@ -19,7 +19,8 @@ Welcome back to Day 2 of our daily hands-on cybersecurity journey! In **Day 1**,
 
 Your first objective is to join the **Welcome room**. After logging into your Try Hack Me dashboard, you can locate this room via the search bar or as part of the initial onboarding path. The room's main page acts as your mission briefing, providing context, an estimated completion time, and social proof from thousands of other learners. To begin, locate and click the prominent green **Join Room** button. This action officially enrolls you in the lab, unlocking the tasks and transforming the page into your interactive workspace.
 
-![The TryHackMe 'Welcome' room dashboard, highlighting the green 'Join Room' button as the primary call to action.](assets/img/posts/20241027/2-join-room-dashboard.png)
+> **THE ONLY CHANGE IS HERE:**
+> ![The TryHackMe 'Welcome' room dashboard, highlighting the green 'Join Room' button as the primary call to action.](assets/img/posts/20241027/2-join-room-dashboard.jpg)
 
 The first task, **What are rooms?**, serves as a quick orientation. In the Try Hack Me ecosystem, a **room** is a self-contained learning module focused on a specific cybersecurity topic. It's a virtual classroom containing theoretical guides, practical challenges, and questions to test your understanding. After reading the brief text, you'll answer a simple question to confirm comprehension, which then allows you to progress.
 

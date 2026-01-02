@@ -5,7 +5,7 @@ categories: [Tutorials, CTF Writeups]
 tags: [tryhackme, cybersecurity, ethical hacking, ctf, welcome lab, hands-on]
 author: ayushjha
 image:
-  path: /assets/img/posts/20240521/1-tryhackme-welcome-banner.jpg
+  path: /assets/img/posts/20240521/1-hero-welcome-banner.jpg
   alt: "Welcome To TryHackMe Banner with logo."
 ---
 

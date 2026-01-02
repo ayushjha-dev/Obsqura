@@ -19,11 +19,11 @@ Welcome back to Day 2 of our daily hands-on cybersecurity journey! In **Day 1**,
 
 Your first objective is to join the **Welcome room**. After logging into your Try Hack Me dashboard, you can locate this room via the search bar or as part of the initial onboarding path. The room's main page acts as your mission briefing, providing context, an estimated completion time, and social proof from thousands of other learners. To begin, locate and click the prominent green **Join Room** button. This action officially enrolls you in the lab, unlocking the tasks and transforming the page into your interactive workspace.
 
-![The TryHackMe 'Welcome' room dashboard, highlighting the green 'Join Room' button as the primary call to action.](assets/img/posts/20241027/2-join-room-dashboard.jpg)
+![The TryHackMe 'Welcome' room dashboard, highlighting the green 'Join Room' button as the primary call to action.](assets/img/posts/20241027/2-join-room-dashboard.png)
 
 The first task, **What are rooms?**, serves as a quick orientation. In the Try Hack Me ecosystem, a **room** is a self-contained learning module focused on a specific cybersecurity topic. It's a virtual classroom containing theoretical guides, practical challenges, and questions to test your understanding. After reading the brief text, you'll answer a simple question to confirm comprehension, which then allows you to progress.
 
-![The TryHackMe interface after joining the room, with Task 1 'What are rooms?' expanded to show the initial informational text.](assets/img/posts/20241027/3-task-one-overview.jpg)
+![The TryHackMe interface after joining the room, with Task 1 'What are rooms?' expanded to show the initial informational text.](assets/img/posts/20241027/3-task-one-overview.png)
 
 ---
 
@@ -31,11 +31,11 @@ The first task, **What are rooms?**, serves as a quick orientation. In the Try H
 
 This is the moment where hands-on learning truly begins. Task 2, **Deploy your first machine**, introduces you to one of the most exciting features of Try Hack Me. You're not just reading about hacking; you're about to spin up a live, vulnerable machine that you can legally and safely attack.
 
-![The initial view of Task 2 'Deploy your first machine', showing the instructions before the machine has been started.](assets/img/posts/20241027/4-deploy-machine-task.jpg)
+![The initial view of Task 2 'Deploy your first machine', showing the instructions before the machine has been started.](assets/img/posts/20241027/4-deploy-machine-task.png)
 
 Click the green **Start Machine** button. In the background, Try Hack Me's cloud infrastructure is provisioning a dedicated virtual machine (VM) just for you. As the instructions note, allow at least one minute for this process to complete — the machine needs time to boot up its operating system and services. Once it's ready, a red banner titled **Target Machine Information** will appear at the top of the page. This banner is critically important, as it displays the machine's **Target IP Address**. An IP address is a unique identifier for a device on a network, much like a street address for a house. This IP address is how you will find and connect to your target.
 
-![Screenshot showing the red 'Target Machine Information' banner on TryHackMe, which displays the target IP address and expiration time.](assets/img/posts/20241027/5-target-ip-banner.jpg)
+![Screenshot showing the red 'Target Machine Information' banner on TryHackMe, which displays the target IP address and expiration time.](assets/img/posts/20241027/5-target-ip-banner.png)
 
 ---
 
@@ -43,11 +43,11 @@ Click the green **Start Machine** button. In the background, Try Hack Me's cloud
 
 Now that your target is online, you need a machine from which to launch your attack. Try Hack Me provides a powerful, browser-based solution called the **Attack Box**. This is a fully-featured Linux virtual machine, pre-installed with all the essential cybersecurity tools, that runs directly in your browser. This saves you the complex setup of a local hacking environment, allowing you to jump straight into the action. To launch the AttackBox, simply click on the **“?”** help icon available on the platform and proceed with the guided steps to activate it.
 
-![A pop-up modal titled 'To access this machine, you need to either:' with options to 'Use the AttackBox' or 'Use a VPN'.](assets/img/posts/20241027/6-start-attackbox-popup.jpg)
+![A pop-up modal titled 'To access this machine, you need to either:' with options to 'Use the AttackBox' or 'Use a VPN'.](assets/img/posts/20241027/6-start-attackbox-popup.png)
 
 To access the target, click the blue **Start Attack Box** button. A new pane will open, loading a complete Linux desktop environment. Inside this Attack Box, open the pre-installed Mozilla Firefox web browser. Now, carefully copy the **Target IP Address** from the red banner on the main Try Hack Me page. Switch back to the Attack Box window and paste this IP address directly into the URL bar of its Firefox browser, then press Enter. This action tells the Attack Box's browser to send a request to the web server running on your target machine.
 
-![The browser inside the AttackBox with the target machine's IP address being pasted into the URL bar.](assets/img/posts/20241027/7-attackbox-pasting-ip.jpg)
+![The browser inside the AttackBox with the target machine's IP address being pasted into the URL bar.](assets/img/posts/20241027/7-attackbox-pasting-ip.png)
 
 ---
 
@@ -55,14 +55,14 @@ To access the target, click the blue **Start Attack Box** button. A new pane wil
 
 If all steps were followed correctly, the web page hosted on the target machine will load successfully. This page serves as confirmation of your connection and presents you with your very first flag. In cybersecurity challenges and Capture The Flag (CTF) competitions, a **“flag”** is a piece of text, often in a specific format like `flag{text_goes_here}`, that serves as proof of successful exploitation or completion. Finding and submitting flags is the primary way you demonstrate your skill and progress through rooms on Try Hack Me.
 
-![The AttackBox browser successfully connected to the target IP, displaying the message "You can access TryHackMe machines!" and the flag.](assets/img/posts/20241027/8-flag-captured.jpg)
+![The AttackBox browser successfully connected to the target IP, displaying the message "You can access TryHackMe machines!" and the flag.](assets/img/posts/20241027/8-flag-captured.png)
 
 On the webpage, you will see the following text:
 `flag{connection_verified}`
 
 This is your prize. Highlight and copy the entire flag, including the `flag{}` wrapper. Navigate back to the main Try Hack Me “Welcome” room page. In the answer field for Task 2, paste the flag you just discovered and click the “Check” button. A rewarding **“Correct!”** notification will appear. You have officially hacked your first machine and captured your first flag!
 
-![The flag 'flag{connection_verified}' has been pasted into the answer box for Task 2 on the TryHackMe platform.](assets/img/posts/20241027/9-submitting-the-flag.jpg)
+![The flag 'flag{connection_verified}' has been pasted into the answer box for Task 2 on the TryHackMe platform.](assets/img/posts/20241027/9-submitting-the-flag.png)
 
 ---
 
@@ -70,7 +70,7 @@ This is your prize. Highlight and copy the entire flag, including the `flag{}` w
 
 Upon completing the final task, you'll be greeted with a “Welcome complete!” screen. Take a moment to appreciate this milestone. You have successfully navigated the entire core loop of a hands-on lab on Try Hack Me.
 
-![The "You did it! Welcome complete!" screen on TryHackMe, showing stats for points earned, tasks completed, and streak.](assets/img/posts/20241027/10-mission-complete.jpg)
+![The "You did it! Welcome complete!" screen on TryHackMe, showing stats for points earned, tasks completed, and streak.](assets/img/posts/20241027/10-mission-complete.png)
 
 Today, you learned how to:
 - **Join a room** and understand its structure.

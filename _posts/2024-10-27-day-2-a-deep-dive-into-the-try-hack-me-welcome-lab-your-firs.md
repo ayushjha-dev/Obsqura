@@ -1,6 +1,6 @@
 ---
 title: "Day 2: A Deep Dive into the Try Hack Me Welcome Lab — Your First Hands-On Hacking Challenge"
-date: 2024-10-27 12:30:00 +0530
+date: 2026-01-02 11:30:00 +0530
 categories: [Ethical Hacking, Tutorials]
 tags: [tryhackme, ctf, beginner, hands-on, welcome-lab]
 author: ayushjha

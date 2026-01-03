@@ -37,7 +37,8 @@ The first command used in the lab is `ls`. This command is used to list all file
 The folder name displayed is `testdir`, which is submitted in the answer field and marked correct, as shown in the screenshot.
 
 ![Navigating into the 'testdir' directory.](/assets/img/posts/20260103/4-thm-cd-command.png)
-_Successfully changing the directory into 'testdir'._
+_Initial 'ls' command reveals the 'testdir' directory._
+
 
 ### Command 2: Changing Directory Using `cd testdir`
 
@@ -50,7 +51,8 @@ After identifying the folder, the next command used is `cd testdir`. The `cd` co
 No answer is required for this step, as the task is purely action-based. Successfully executing the command allows the learner to proceed.
 
 ![Listing and reading the contents of 'hello.txt'.](/assets/img/posts/20260103/5-thm-cat-command-sequence.png)
-_The full command sequence to find and read the file._
+_Successfully changing the directory into 'testdir'._
+
 
 ### Command 3: Listing Files Again Using `ls`
 
@@ -67,7 +69,8 @@ The next command executed in the lab is `cat hello.txt`. The `cat` command is us
 The correct answer is `hacking labs`, which is entered into the answer field and confirmed as correct.
 
 ![The Try Hack Me interface showing correct answers validated.](/assets/img/posts/20260103/6-thm-answer-validation.png)
-_Correct answers are validated in real-time._
+_The full command sequence to find and read the file._
+
 
 
 ### Final Instruction: Terminating the Machine
@@ -80,7 +83,7 @@ At the end of the task, Try Hack Me instructs learners to stop the running machi
 Each time an answer is submitted, Try Hack Me provides instant feedback. Correct answers are highlighted and marked clearly, helping learners confirm their understanding. This immediate validation is one of the strongest features of the platform, as it reinforces learning through real-time confirmation.
 
 ![The machine information panel with the Terminate button highlighted.](/assets/img/posts/20260103/8-thm-terminate-machine.png)
-_Always remember to terminate your machine after use._
+_Correct answers are validated in real-time._
 
 
 ### Day 3 Learning Outcome
@@ -88,7 +91,7 @@ _Always remember to terminate your machine after use._
 By completing Day 3, learners gain hands-on experience with the Try Hack Me lab interface, understand how to execute Linux commands inside a virtual machine, and learn how to answer task-based questions correctly. The commands `ls`, `cd`, and `cat` form the foundation of Linux navigation and file inspection, which are used repeatedly throughout cybersecurity labs. This day represents the true starting point of practical cybersecurity learning.
 
 ![The completion screen for the 'How to use TryHackMe' room.](/assets/img/posts/20260103/9-thm-room-complete.png)
-_Success! The introductory room is complete._
+_Success! The How to use tryhackme  room is complete._
 
 ### Day 4 Preview: Hello Lab
 
@@ -103,4 +106,5 @@ The "How to Use Try Hack Me” room is a critical milestone for beginners. It tr
 
 
 **—Mr. Xploit** 🛡️
+
 

@@ -1,6 +1,6 @@
 ---
 title: "Day 4: Try Hack Me Getting Started Lab—Learning Web Basics and Default Credentials"
-date: 2023-10-27 10:00:00 +0530
+date: 2026-01-04 11:30:00 +0530
 categories: [CTF Writeups, Tutorials, Web Security]
 tags: [tryhackme, getting started, web security, default credentials, source code analysis]
 author: ayushjha
@@ -93,3 +93,4 @@ On Day 5, the Try Hack Me Lab Series will move to the **OpenVPN Lab**, where lea
 **Series:** *Try Hack Me Labs—A Daily Hands-On Cybersecurity Journey*
 
 **—Mr. Xploit** 🛡️
+

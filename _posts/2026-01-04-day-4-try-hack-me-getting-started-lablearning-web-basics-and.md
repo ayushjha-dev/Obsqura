@@ -1,6 +1,6 @@
 ---
 title: "Day 4: Try Hack Me Getting Started Lab—Learning Web Basics and Default Credentials"
-date: 2026-01-04 11:15:00 +0530
+date: 2023-10-27 11:15:00 +0530
 categories: [Ethical Hacking, Web Security, Tutorials]
 tags: [tryhackme, web basics, default credentials, source code analysis, ctf writeup]
 author: ayushjha
@@ -21,17 +21,17 @@ The first step begins by navigating to the **Getting Started Lab** on Try Hack M
 
 At this stage, it is important to read the room description briefly to understand the objective before moving forward.
 
-![Joining the Getting Started Lab on Try Hack Me](https://raw.githubusercontent.com/ayushjhagithub/ayushjhagithub.github.io/main/assets/img/posts/20231027/2-join-getting-started-lab.png)
+![Joining the Getting Started Lab on Try Hack Me](/assets/img/posts/20231027/2-join-getting-started-lab.png)
 
 ## Step 2: Starting the Machine and Attack Box
 
 After joining the room, the next step is to **start the target machine** provided by Try Hack Me. Along with this, the **Attack Box** must also be launched. The Attack Box is a browser-based virtual machine equipped with tools needed for interacting with targets during labs.
 
-![Starting the target machine and Attack Box](https://raw.githubusercontent.com/ayushjhagithub/ayushjhagithub.github.io/main/assets/img/posts/20231027/3-start-machine-and-attackbox.png)
+![Starting the target machine and Attack Box](/assets/img/posts/20231027/3-start-machine-and-attackbox.png)
 
 Once both the machine and Attack Box are running, an IP address appears at the top of the room. This IP address represents the target web application hosted by the lab environment and is required to access the website.
 
-![Target machine information with IP address displayed](https://raw.githubusercontent.com/ayushjhagithub/ayushjhagithub.github.io/main/assets/img/posts/20231027/4-target-machine-ip-address.png)
+![Target machine information with IP address displayed](/assets/img/posts/20231027/4-target-machine-ip-address.png)
 
 ## Step 3: Accessing the Target Website via Attack Box
 
@@ -39,19 +39,19 @@ Inside the Attack Box, the Firefox browser is opened. The previously copied IP a
 
 Opening the target in the Attack Box browser ensures that all interactions remain within the Try Hack Me environment, keeping the process safe and controlled.
 
-![Accessing the target website using the IP in the Attack Box browser](https://raw.githubusercontent.com/ayushjhagithub/ayushjhagithub.github.io/main/assets/img/posts/20231027/5-access-target-website-in-attackbox.png)
+![Accessing the target website using the IP in the Attack Box browser](/assets/img/posts/20231027/5-access-target-website-in-attackbox.png)
 
 ## Step 4: Inspecting the Website Source Code
 
 Once the website loads, it displays the **BFFs Social Media Page**. At first glance, the page appears simple and normal. However, hidden information often exists beneath the surface. By right-clicking on the page and selecting **View Page Source**, the HTML source code of the page becomes visible.
 
-![Right-clicking to view page source on the BFFs website](https://raw.githubusercontent.com/ayushjhagithub/ayushjhagithub.github.io/main/assets/img/posts/20231027/6-viewing-page-source.png)
+![Right-clicking to view page source on the BFFs website](/assets/img/posts/20231027/6-viewing-page-source.png)
 
 While reviewing the source code, comments are identified. HTML comments typically begin with the `<!--` character. These comments may contain sensitive information that developers unintentionally leave behind. In this lab, the comments reveal valuable clues related to hidden or restricted pages. The identified information is copied and pasted into Task 1 as the correct answer.
 
 This step demonstrates how attackers often gather intelligence by simply inspecting page source rather than using complex tools.
 
-![Finding the hidden admin page in the HTML source code comments](https://raw.githubusercontent.com/ayushjhagithub/ayushjhagithub.github.io/main/assets/img/posts/20231027/7-hidden-admin-page-in-source.png)
+![Finding the hidden admin page in the HTML source code comments](/assets/img/posts/20231027/7-hidden-admin-page-in-source.png)
 
 ## Step 5: Discovering the Admin Login Page and Default Credentials
 
@@ -67,7 +67,7 @@ After logging into the admin panel, additional information becomes accessible. O
 
 This step reinforces the impact of compromised admin access, as it exposes user-related data that should normally be protected.
 
-![Using default credentials to log in and answer questions](https://raw.githubusercontent.com/ayushjhagithub/ayushjhagithub.github.io/main/assets/img/posts/20231027/8-identifying-application-users.png)
+![Using default credentials to log in and answer questions](/assets/img/posts/20231027/8-identifying-application-users.png)
 
 ## Day 4 Learning Outcome
 
@@ -81,7 +81,7 @@ The **Getting Started Lab** is a crucial milestone in the Try Hack Me learning j
 
 Consistency and curiosity are key to mastering cybersecurity, and this lab is a strong step forward in that direction.
 
-![Getting Started lab completion screen on Try Hack Me](https://raw.githubusercontent.com/ayushjhagithub/ayushjhagithub.github.io/main/assets/img/posts/20231027/9-lab-completion-screen.png)
+![Getting Started lab completion screen on Try Hack Me](/assets/img/posts/20231027/9-lab-completion-screen.png)
 
 ## Day 5 Preview: OpenVPN Lab
 

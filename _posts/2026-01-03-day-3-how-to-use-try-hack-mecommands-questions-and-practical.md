@@ -93,9 +93,9 @@ By completing Day 3, learners gain hands-on experience with the Try Hack Me lab 
 ![The completion screen for the 'How to use TryHackMe' room.](/assets/img/posts/20260103/9-thm-room-complete.png)
 _Success! The How to use tryhackme  room is complete._
 
-### Day 4 Preview: Hello Lab
+### Day 4 Preview: Getting Started  Lab
 
-On Day 4, the series will move to the **Hello Lab**, where learners will further strengthen their interaction with Try Hack Me labs. This room will build confidence by reinforcing basic command execution and task understanding, preparing learners for more technical Linux and security-focused challenges ahead.
+On Day 4, the series will move to the **Getting Started Lab**, where learners will further strengthen their interaction with Try Hack Me labs. This room will build confidence by reinforcing basic command execution and task understanding, preparing learners for more technical Linux and security-focused challenges ahead.
 
 ### Conclusion
 
@@ -106,5 +106,6 @@ The "How to Use Try Hack Me” room is a critical milestone for beginners. It tr
 
 
 **—Mr. Xploit** 🛡️
+
 
 

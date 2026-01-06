@@ -5,7 +5,7 @@ categories: [Industry Insights, Tutorials]
 tags: [cybersecurity, career, student journey, ethical hacking, learning]
 author: ayushjha
 image:
-  path: /assets/img/posts/20231027/1-students-learning-cybersecurity.png
+  path: assets/img/posts/20231027/1-students-learning-cybersecurity.png
   alt: "Three diverse students collaborating on a cybersecurity project in a computer lab."
 ---
 
@@ -15,7 +15,7 @@ In today’s digital world, technology is deeply integrated into every aspect of
 
 This blog reflects the mindset, motivation, and learning path of a student who decides to build a future in cybersecurity.
 
-![A person in a suit pointing at a futuristic cybersecurity interface with various security icons.](/assets/img/posts/20231027/2-cybersecurity-professional-interface.png)
+![A person in a suit pointing at a futuristic cybersecurity interface with various security icons.](assets/img/posts/20231027/2-cybersecurity-professional-interface.png)
 *A professional interacting with a security dashboard.*
 {: .text-center}
 
@@ -31,7 +31,7 @@ Many students are drawn to cybersecurity because it offers a mix of technology, 
 
 For a student, cybersecurity provides a sense of purpose. The field rewards skills over degrees alone, values hands-on experience, and encourages ethical responsibility. The idea of defending systems rather than exploiting them unethically becomes a strong motivation to grow in this domain.
 
-![An illustration of a hooded figure working on a laptop with the text 'ROLE OF ETHICAL HACKING IN CYBER SECURITY'.](/assets/img/posts/20231027/3-ethical-hacking-role.png)
+![An illustration of a hooded figure working on a laptop with the text 'ROLE OF ETHICAL HACKING IN CYBER SECURITY'.](assets/img/posts/20231027/3-ethical-hacking-role.png)
 *The critical role of ethical hacking in modern cybersecurity.*
 {: .text-center}
 
@@ -47,7 +47,7 @@ Cybersecurity is not just about tools; it is about mindset. A student entering t
 
 Patience and consistency play a major role. There are days when concepts feel overwhelming, commands fail, or labs do not work as expected. However, these challenges shape a cybersecurity student into a resilient problem solver who learns to stay calm under pressure.
 
-![Infographic showing the steps of continuous learning from lifelong education to fostering growth.](/assets/img/posts/20231027/4-continuous-learning-infographic.png)
+![Infographic showing the steps of continuous learning from lifelong education to fostering growth.](assets/img/posts/20231027/4-continuous-learning-infographic.png)
 *Continuous learning is fundamental to a cybersecurity mindset.*
 {: .text-center}
 
@@ -63,7 +63,7 @@ The cybersecurity field offers diverse career paths for students, including role
 
 For students, this means long-term career stability, global opportunities, and continuous learning. Cybersecurity is one of the few fields where skill development never stops, making it ideal for those who enjoy growth and challenges.
 
-![An illustration asking 'IS CYBER SECURITY a Good Career?' with characters interacting with security elements.](/assets/img/posts/20231027/5-cybersecurity-career-question.png)
+![An illustration asking 'IS CYBER SECURITY a Good Career?' with characters interacting with security elements.](assets/img/posts/20231027/5-cybersecurity-career-question.png)
 *Exploring the viability of a career in cybersecurity.*
 {: .text-center}
 
@@ -73,7 +73,7 @@ Becoming a cybersecurity professional starts with a single decision made as a st
 
 Cybersecurity is not just a career; it is a mindset, a responsibility, and a lifelong learning journey. For students willing to stay curious and consistent, the cybersecurity field offers endless opportunities to grow and make a real impact.
 
-![A hand touching a digital interface with cybersecurity icons.](/assets/img/posts/20231027/6-digital-cybersecurity-interface.png)
+![A hand touching a digital interface with cybersecurity icons.](assets/img/posts/20231027/6-digital-cybersecurity-interface.png)
 *The future of cybersecurity is interactive and ever-evolving.*
 {: .text-center}
 

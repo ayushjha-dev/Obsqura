@@ -14,9 +14,10 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install Dependencies
-        run: pip install google-genai PyGithub
+        run: pip install google-genai PyGithub requests Pillow
       - name: Run Autopilot
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
         run: python tools/automate_blog.py

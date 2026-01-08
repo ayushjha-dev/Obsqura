@@ -244,8 +244,8 @@ def generate_and_save_image(topic):
             f.write(placeholder_png)
         return img_path
 
-def upload_to_github(md_filename, md_content, img_path):
-    """Upload markdown post and image to GitHub repository."""
+def upload_to_github(md_filename, md_content, img_path, status_data=None):
+    """Upload markdown post, image, and status.json to GitHub repository."""
     try:
         from github import Auth
         auth = Auth.Token(GH_TOKEN)
@@ -270,6 +270,19 @@ def upload_to_github(md_filename, md_content, img_path):
         repo_md_path = f"_posts/{md_filename}"
         repo.create_file(repo_md_path, f"Automated Post: {md_filename}", md_content, branch="main")
         print(f"✓ Uploaded post to GitHub: {repo_md_path}")
+        
+        # Upload status.json (update or create)
+        if status_data:
+            status_content = json.dumps(status_data, indent=2)
+            try:
+                # Try to get existing file first
+                contents = repo.get_contents(STATUS_FILE, ref="main")
+                repo.update_file(STATUS_FILE, f"Update status: Day {status_data['next_day']}", status_content, contents.sha, branch="main")
+                print(f"✓ Updated status.json on GitHub: Next run will process Day {status_data['next_day']}")
+            except:
+                # File doesn't exist, create it
+                repo.create_file(STATUS_FILE, f"Create status: Day {status_data['next_day']}", status_content, branch="main")
+                print(f"✓ Created status.json on GitHub: Next run will process Day {status_data['next_day']}")
         
     except Exception as e:
         print(f"❌ GitHub upload failed: {e}")
@@ -319,14 +332,17 @@ def main():
             f.write(md_content)
         print(f"\n3️⃣  Saved locally: {local_post_path}")
         
-        # Step 4: Upload to GitHub
-        print("\n4️⃣  Uploading to GitHub...")
-        upload_to_github(md_filename, md_content, img_path)
+        # Step 4: Prepare status update
+        status_data = {"next_day": day + 1, "last_processed": topic}
         
-        # Step 5: Update status
+        # Save status locally first
+        os.makedirs(os.path.dirname(STATUS_FILE), exist_ok=True)
         with open(STATUS_FILE, 'w') as f:
-            json.dump({"next_day": day + 1, "last_processed": topic}, f, indent=2)
-        print(f"\n5️⃣  Status updated: Next run will process Day {day + 1}")
+            json.dump(status_data, f, indent=2)
+        
+        # Step 5: Upload to GitHub (including status.json)
+        print("\n4️⃣  Uploading to GitHub...")
+        upload_to_github(md_filename, md_content, img_path, status_data)
         
         print("\n" + "="*60)
         print(f"✅ Successfully published Day {day}: {topic}")

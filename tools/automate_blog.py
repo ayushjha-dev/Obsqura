@@ -135,18 +135,42 @@ def generate_blog_content(topic, details):
     
     Return ONLY the raw markdown content with complete front matter and body.
     DO NOT add any explanations or comments outside the markdown.
+    DO NOT wrap the output in markdown code blocks (no ```markdown or ``` tags).
     """
-    response = client.models.generate_content(
-        model='gemini-2.5-flash',
-        contents=prompt
-    )
-    return response.text
+    
+    # Add retry logic and error handling for Gemini API
+    max_retries = 3
+    for attempt in range(max_retries):
+        try:
+            response = client.models.generate_content(
+                model='gemini-2.5-flash',
+                contents=prompt
+            )
+            return response.text
+        except Exception as e:
+            print(f"  ⚠️  Gemini API attempt {attempt + 1}/{max_retries} failed: {e}")
+            if attempt < max_retries - 1:
+                import time
+                wait_time = (attempt + 1) * 2  # Exponential backoff: 2s, 4s, 6s
+                print(f"  ⏳ Waiting {wait_time} seconds before retry...")
+                time.sleep(wait_time)
+            else:
+                print(f"  ❌ All Gemini API attempts failed!")
+                raise Exception(f"Gemini API failed after {max_retries} attempts: {e}")
 
 def validate_and_clean_content(content):
-    """Remove broken internal blog links from generated content."""
+    """Remove broken internal blog links and markdown code block wrappers from generated content."""
     import re
     
-    # Pattern to find internal blog links (links starting with /blog/ or /posts/)
+    # Step 1: Remove markdown code block wrappers (```markdown ... ``` or ```md ... ```)
+    # This handles cases where Gemini wraps the entire response in code blocks
+    code_block_pattern = r'^```(?:markdown|md)?\s*\n(.*?)\n```\s*$'
+    match = re.match(code_block_pattern, content.strip(), re.DOTALL)
+    if match:
+        content = match.group(1)
+        print(f"  ✓ Removed markdown code block wrapper")
+    
+    # Step 2: Pattern to find internal blog links (links starting with /blog/ or /posts/)
     internal_link_pattern = r'\[([^\]]+)\]\((/blog/[^\)]+|/posts/[^\)]+)\)'
     
     # Find all internal links
@@ -248,6 +272,7 @@ def upload_to_github(md_filename, md_content, img_path, status_data=None):
     """Upload markdown post, image, and status.json to GitHub repository."""
     try:
         from github import Auth
+        from github import GithubException
         auth = Auth.Token(GH_TOKEN)
         g = Github(auth=auth)
         repo = g.get_repo(REPO_NAME)
@@ -258,8 +283,18 @@ def upload_to_github(md_filename, md_content, img_path, status_data=None):
         
         if len(img_data) > 100:  # Only upload if it's a real image (not just placeholder)
             try:
-                repo.create_file(img_path, f"Add image for {md_filename}", img_data, branch="main")
-                print(f"✓ Uploaded image to GitHub: {img_path}")
+                # Check if image already exists
+                try:
+                    existing_img = repo.get_contents(img_path, ref="main")
+                    print(f"⚠ Image already exists on GitHub: {img_path}")
+                    print(f"  Skipping upload (file already present)")
+                except GithubException as e:
+                    if e.status == 404:
+                        # File doesn't exist, safe to create
+                        repo.create_file(img_path, f"Add image for {md_filename}", img_data, branch="main")
+                        print(f"✓ Uploaded image to GitHub: {img_path}")
+                    else:
+                        raise
             except Exception as e:
                 print(f"⚠ Image upload failed: {e}")
                 print(f"  You may need to upload the image manually")
@@ -268,8 +303,20 @@ def upload_to_github(md_filename, md_content, img_path, status_data=None):
         
         # Upload Markdown Post
         repo_md_path = f"_posts/{md_filename}"
-        repo.create_file(repo_md_path, f"Automated Post: {md_filename}", md_content, branch="main")
-        print(f"✓ Uploaded post to GitHub: {repo_md_path}")
+        try:
+            # Check if post already exists
+            existing_post = repo.get_contents(repo_md_path, ref="main")
+            print(f"⚠ Post already exists on GitHub: {repo_md_path}")
+            print(f"  Updating existing post...")
+            repo.update_file(repo_md_path, f"Update Post: {md_filename}", md_content, existing_post.sha, branch="main")
+            print(f"✓ Updated post on GitHub: {repo_md_path}")
+        except GithubException as e:
+            if e.status == 404:
+                # File doesn't exist, safe to create
+                repo.create_file(repo_md_path, f"Automated Post: {md_filename}", md_content, branch="main")
+                print(f"✓ Uploaded post to GitHub: {repo_md_path}")
+            else:
+                raise
         
         # Upload status.json (update or create)
         if status_data:
@@ -279,10 +326,13 @@ def upload_to_github(md_filename, md_content, img_path, status_data=None):
                 contents = repo.get_contents(STATUS_FILE, ref="main")
                 repo.update_file(STATUS_FILE, f"Update status: Day {status_data['next_day']}", status_content, contents.sha, branch="main")
                 print(f"✓ Updated status.json on GitHub: Next run will process Day {status_data['next_day']}")
-            except:
-                # File doesn't exist, create it
-                repo.create_file(STATUS_FILE, f"Create status: Day {status_data['next_day']}", status_content, branch="main")
-                print(f"✓ Created status.json on GitHub: Next run will process Day {status_data['next_day']}")
+            except GithubException as e:
+                if e.status == 404:
+                    # File doesn't exist, create it
+                    repo.create_file(STATUS_FILE, f"Create status: Day {status_data['next_day']}", status_content, branch="main")
+                    print(f"✓ Created status.json on GitHub: Next run will process Day {status_data['next_day']}")
+                else:
+                    raise
         
     except Exception as e:
         print(f"❌ GitHub upload failed: {e}")

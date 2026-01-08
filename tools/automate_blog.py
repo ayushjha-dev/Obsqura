@@ -212,74 +212,37 @@ def get_unsplash_image(topic):
         return None, None
 
 def generate_and_save_image(topic):
-    """Generate hero banner image using multiple fallback strategies."""
-    # Using gemini-2.5-flash-image for image generation
-    # Fallback chain: Gemini → Unsplash → Placeholder
-    image_prompt = f"""Create a professional, high-quality cybersecurity hero banner for the topic: {topic}.
-    
-    Style: Modern digital art with a futuristic tech aesthetic
-    Composition: Wide 16:9 banner format suitable for blog header
-    Elements: Include abstract representations of cybersecurity concepts (shields, locks, network nodes, code, digital security)
-    Color scheme: Deep blues, cyans, and purples with accent highlights
-    Mood: Professional, secure, cutting-edge technology
-    Lighting: Dramatic cinematic lighting with depth
-    Quality: Sharp, high-resolution, suitable for web use
-    
-    Make it visually striking and engaging while maintaining professional credibility."""
-    
+    """Download hero banner image from Unsplash."""
     img_date = datetime.datetime.now().strftime('%Y%m%d')
     img_dir = f"assets/img/posts/{img_date}"
     os.makedirs(img_dir, exist_ok=True)
     img_path = f"{img_dir}/1-hero-banner.png"
     
-    # Strategy 1: Try Gemini AI image generation
-    try:
-        print("  🎨 Trying Gemini AI image generation...")
-        response = client.models.generate_content(
-            model='gemini-2.5-flash-image',
-            contents=[image_prompt],
-            config=types.GenerateContentConfig(
-                response_modalities=['IMAGE'],
-                image_config=types.ImageConfig(aspect_ratio='16:9')
-            )
-        )
-        
-        # Extract and save the image
-        for part in response.parts:
-            if part.inline_data is not None and part.inline_data.mime_type.startswith('image/'):
-                with open(img_path, 'wb') as f:
-                    f.write(part.inline_data.data)
-                print(f"  ✅ Gemini generated image successfully!")
-                return img_path
-        
-        raise Exception("No image data in Gemini response")
-            
-    except Exception as e:
-        error_msg = str(e)
-        if "429" in error_msg or "quota" in error_msg.lower():
-            print(f"  ⚠️  Gemini quota exceeded, trying Unsplash...")
-        else:
-            print(f"  ⚠️  Gemini failed ({error_msg[:50]}...), trying Unsplash...")
+    # Check if Unsplash API key is available
+    if not UNSPLASH_ACCESS_KEY:
+        print(f"  ⚠️  Unsplash API key not configured!")
+        print(f"  Creating placeholder image...")
+        placeholder_png = b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01\x00\x00\x00\x01\x08\x06\x00\x00\x00\x1f\x15\xc4\x89\x00\x00\x00\nIDATx\x9cc\x00\x01\x00\x00\x05\x00\x01\r\n-\xb4\x00\x00\x00\x00IEND\xaeB`\x82'
+        with open(img_path, 'wb') as f:
+            f.write(placeholder_png)
+        return img_path
     
-    # Strategy 2: Try Unsplash stock photos
+    # Get image from Unsplash
     try:
         img, photographer = get_unsplash_image(topic)
         if img:
             img.save(img_path)
             print(f"  ✅ Using Unsplash image by {photographer}")
-            print(f"  💡 Tip: You can add attribution in the blog post if desired")
             return img_path
+        else:
+            raise Exception("No suitable images found on Unsplash")
     except Exception as e:
-        print(f"  ⚠️  Unsplash fallback failed: {e}")
-    
-    # Strategy 3: Create placeholder
-    print(f"  ⚠️  All image sources exhausted, creating placeholder...")
-    placeholder_png = b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01\x00\x00\x00\x01\x08\x06\x00\x00\x00\x1f\x15\xc4\x89\x00\x00\x00\nIDATx\x9cc\x00\x01\x00\x00\x05\x00\x01\r\n-\xb4\x00\x00\x00\x00IEND\xaeB`\x82'
-    with open(img_path, 'wb') as f:
-        f.write(placeholder_png)
-    print(f"  ✅ Placeholder created (you can replace it manually later)")
-
-    return img_path
+        print(f"  ⚠️  Unsplash failed: {e}")
+        print(f"  Creating placeholder image...")
+        placeholder_png = b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01\x00\x00\x00\x01\x08\x06\x00\x00\x00\x1f\x15\xc4\x89\x00\x00\x00\nIDATx\x9cc\x00\x01\x00\x00\x05\x00\x01\r\n-\xb4\x00\x00\x00\x00IEND\xaeB`\x82'
+        with open(img_path, 'wb') as f:
+            f.write(placeholder_png)
+        return img_path
 
 def upload_to_github(md_filename, md_content, img_path):
     """Upload markdown post and image to GitHub repository."""

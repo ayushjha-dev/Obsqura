@@ -1,8 +1,8 @@
 name: Obsqura Autopilot
 on:
   schedule:
-    - cron: '0 9 * * *' # Runs every day at 9:00 AM UTC
-  workflow_dispatch: # Allows manual start
+    - cron: '0 9 * * *'
+  workflow_dispatch:
 
 jobs:
   post:
@@ -12,9 +12,9 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: '3.12'
       - name: Install Dependencies
-        run: pip install google-generativeai PyGithub
+        run: pip install google-genai PyGithub
       - name: Run Autopilot
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}

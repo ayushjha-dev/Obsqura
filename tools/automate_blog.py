@@ -16,7 +16,7 @@ STATUS_FILE = "tools/status.json"
 # Initialize Models
 genai.configure(api_key=GEMINI_API_KEY)
 # Using user-specified model names
-model_pro = genai.GenerativeModel('gemini-2.5-pro')
+model_pro = genai.GenerativeModel('gemini-2.5-flash')
 model_image = genai.GenerativeModel('gemini-2.5-flash-image')
 
 def get_next_topic():
@@ -116,3 +116,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

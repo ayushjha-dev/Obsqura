@@ -1,0 +1,27 @@
+Day 1
+Topic: Readiness for Post-quantum cryptography
+Additional Details: Impact of PQC on current encryption standards and the transition timeline.
+
+Day 2
+Topic: The Evolution of Ransomware: From Locky to RaaS
+Additional Details: How ransomware became a service and what businesses should do.
+
+Day 3
+Topic: Zero Trust Architecture: Why "Never Trust, Always Verify" is the Standard
+Additional Details: Implementing identity-based security in a remote-first world.
+
+Day 4
+Topic: AI in Cyber Defense: Detecting Threats at Machine Speed
+Additional Details: Using machine learning to identify anomalies before they become breaches.
+
+Day 5
+Topic: The Human Firewall: Psychology of Social Engineering
+Additional Details: Why humans remain the weakest link and how to train against phishing.
+
+Day 6
+Topic: IoT Insecurity: The Hidden Risks in Your Smart Home
+Additional Details: How "smart" devices become entry points for botnets.
+
+Day 7
+Topic: Cloud Misconfigurations: The #1 Entry Point for Data Breaches
+Additional Details: Real-world examples of S3 bucket leaks and how to automate cloud audits.

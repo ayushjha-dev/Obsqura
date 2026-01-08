@@ -127,9 +127,9 @@ def generate_blog_content(topic, details):
     
     5. SEO & ENGAGEMENT:
        - Use keywords naturally throughout
-       - Include internal linking suggestions [link text](URL)
-       - Add external reference links to authoritative sources
+       - Add external reference links to authoritative sources (e.g., NIST, CISA, academic papers)
        - Front-load important information
+       - Use descriptive anchor text for all external links
     
     6. LENGTH: Aim for 1000-1500 words (comprehensive but readable)
     
@@ -141,6 +141,29 @@ def generate_blog_content(topic, details):
         contents=prompt
     )
     return response.text
+
+def validate_and_clean_content(content):
+    """Remove broken internal blog links from generated content."""
+    import re
+    
+    # Pattern to find internal blog links (links starting with /blog/ or /posts/)
+    internal_link_pattern = r'\[([^\]]+)\]\((/blog/[^\)]+|/posts/[^\)]+)\)'
+    
+    # Find all internal links
+    matches = re.findall(internal_link_pattern, content)
+    
+    if matches:
+        print(f"  ⚠️  Found {len(matches)} internal blog links - removing to prevent broken links:")
+        for link_text, url in matches:
+            print(f"     - '{link_text}' → {url}")
+            # Replace the link with just the text (remove link but keep text)
+            content = re.sub(
+                rf'\[{re.escape(link_text)}\]\({re.escape(url)}\)',
+                f'**{link_text}**',  # Make it bold instead
+                content
+            )
+    
+    return content
 
 def get_unsplash_image(topic):
     """Fetch image from Unsplash as fallback."""
@@ -313,6 +336,11 @@ def main():
         print("\n1️⃣  Generating blog content with AI...")
         md_content = generate_blog_content(topic, details)
         print(f"   ✓ Content generated ({len(md_content)} characters)")
+        
+        # Step 1.5: Validate and clean content
+        print("\n1️⃣.5️⃣  Validating content...")
+        md_content = validate_and_clean_content(md_content)
+        print(f"   ✓ Content validated")
         
         # Step 2: Generate hero image
         print("\n2️⃣  Generating hero banner image...")

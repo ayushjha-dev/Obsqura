@@ -7,8 +7,13 @@ on:
 jobs:
   post:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Required for pushing changes back to repo
     steps:
       - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GH_TOKEN }}  # Use PAT for authenticated commits
+          fetch-depth: 0  # Fetch all history for proper git operations
       - name: Set up Python
         uses: actions/setup-python@v4
         with:

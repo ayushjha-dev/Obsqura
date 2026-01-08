@@ -3,6 +3,9 @@ import datetime
 import re
 import json
 import sys
+import requests
+from io import BytesIO
+from PIL import Image
 from google import genai
 from google.genai import types
 from github import Github
@@ -10,6 +13,7 @@ from github import Github
 # --- CONFIGURATION ---
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 GH_TOKEN = os.getenv("GH_TOKEN")
+UNSPLASH_ACCESS_KEY = os.getenv("UNSPLASH_ACCESS_KEY")
 REPO_NAME = "ayushjha-dev/Obsqura"
 TOPICS_FILE = "topics.txt"
 STATUS_FILE = "tools/status.json"
@@ -24,6 +28,10 @@ if not GH_TOKEN:
     print("❌ ERROR: GH_TOKEN environment variable is not set!")
     print("   Please set it with: export GH_TOKEN='your-github-token-here'")
     sys.exit(1)
+
+# Note: UNSPLASH_ACCESS_KEY is optional - will skip Unsplash fallback if not set
+if not UNSPLASH_ACCESS_KEY:
+    print("⚠️  Warning: UNSPLASH_ACCESS_KEY not set. Image generation will skip Unsplash fallback.")
 
 # Initialize the NEW Google GenAI client
 client = genai.Client(api_key=GEMINI_API_KEY)
@@ -51,27 +59,82 @@ def get_next_topic():
     return None, None, None
 
 def generate_blog_content(topic, details):
-    """Generate blog post content using Gemini AI."""
+    """Generate blog post content using Gemini AI with enhanced visual appeal."""
     # Use latest stable gemini-2.5-flash for text generation (faster and more cost-effective)
     # Alternative: gemini-2.5-pro for more complex reasoning tasks
     prompt = f"""
-    You are a MASTER STORYTELLER and professional cybersecurity writer for "Obsqura".
+    You are a MASTER STORYTELLER and professional cybersecurity writer for "Obsqura" blog.
+    Research and include the LATEST information, trends, and developments about this topic.
+    
     TOPIC: {topic}
     DETAILS: {details}
 
-    REQUIREMENTS:
-    1. Output valid Jekyll Front Matter.
-    2. Date: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S +0530')}
-    3. Author: ayushjha
-    4. Categories: [Tutorials, Industry Insights]
-    5. Image path must be: /assets/img/posts/{datetime.datetime.now().strftime('%Y%m%d')}/1-hero-banner.png
-    6. Use Chirpy callouts (e.g., {{: .prompt-tip}}).
-    7. End with signature: **—Mr. Xploit** 🛡️
-    8. Include practical examples, code snippets where relevant, and real-world scenarios.
-    9. Write in an engaging, professional tone that educates while maintaining reader interest.
-    10. Structure with clear headings, subheadings, and use bullet points for better readability.
+    STRICT REQUIREMENTS:
+    1. Output valid Jekyll Front Matter with these exact fields:
+       - title: (engaging, SEO-optimized)
+       - date: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S +0530')}
+       - author: ayushjha
+       - categories: [Tutorials, Industry Insights]
+       - tags: (5-7 relevant tags)
+       - image:
+           path: /assets/img/posts/{datetime.datetime.now().strftime('%Y%m%d')}/1-hero-banner.png
+           alt: (descriptive alt text)
+       - description: (compelling 150-160 char meta description)
+    
+    2. VISUAL APPEAL - Make it look like a professional blog:
+       - Start with an engaging hook (1-2 sentences that grab attention)
+       - Use emojis strategically (🔐 🛡️ ⚡ 💡 🚀 ⚠️ ✅ 📊) for visual breaks
+       - Add visual separators like "---" between major sections
+       - Use blockquotes (> ) for key takeaways or important quotes
+       - Include tables for comparisons or data when relevant
+       - Use numbered lists for steps/processes
+       - Use bullet points for features/benefits
+       - Add code blocks with syntax highlighting when showing examples
+    
+    3. CONTENT STRUCTURE:
+       ## Introduction
+       - Hook the reader immediately
+       - State what they'll learn
+       - Why this matters NOW (use latest info/trends)
+       
+       ## Main Content (3-5 sections with H2 headings)
+       - Each section should be 2-3 paragraphs
+       - Include PRACTICAL examples from real-world scenarios
+       - Use Chirpy callouts for emphasis:
+         {{: .prompt-tip}} for helpful tips
+         {{: .prompt-info}} for additional information
+         {{: .prompt-warning}} for security warnings
+         {{: .prompt-danger}} for critical security issues
+       - Add code snippets where relevant (properly formatted)
+       - Include recent statistics or data (2024-2026)
+       
+       ## Key Takeaways
+       - Summarize 3-5 main points as bullet list
+       - Make them actionable
+       
+       ## Conclusion
+       - Reinforce main message
+       - Call to action
+       - End with signature: **—Mr. Xploit** 🛡️
+    
+    4. TONE & STYLE:
+       - Professional yet conversational
+       - Educational but engaging (like teaching a friend)
+       - Use analogies to explain complex concepts
+       - Vary sentence length for better flow
+       - Include questions to engage readers
+       - Reference CURRENT events or recent breaches when relevant
+    
+    5. SEO & ENGAGEMENT:
+       - Use keywords naturally throughout
+       - Include internal linking suggestions [link text](URL)
+       - Add external reference links to authoritative sources
+       - Front-load important information
+    
+    6. LENGTH: Aim for 1000-1500 words (comprehensive but readable)
     
     Return ONLY the raw markdown content with complete front matter and body.
+    DO NOT add any explanations or comments outside the markdown.
     """
     response = client.models.generate_content(
         model='gemini-2.5-flash',
@@ -79,10 +142,56 @@ def generate_blog_content(topic, details):
     )
     return response.text
 
+def get_unsplash_image(topic):
+    """Fetch image from Unsplash as fallback."""
+    # Check if Unsplash API key is available
+    if not UNSPLASH_ACCESS_KEY:
+        print(f"  ⚠️  Unsplash API key not configured, skipping...")
+        return None, None
+    
+    try:
+        # Search for relevant image
+        search_query = topic.lower().replace('post-quantum', 'quantum').replace('readiness for', '')
+        print(f"  📸 Searching Unsplash for: '{search_query}'")
+        
+        response = requests.get(
+            "https://api.unsplash.com/search/photos",
+            params={
+                "query": search_query,
+                "per_page": 1,
+                "orientation": "landscape",
+                "client_id": UNSPLASH_ACCESS_KEY
+            },
+            timeout=10
+        )
+        
+        if response.status_code == 200:
+            data = response.json()
+            if data.get('results'):
+                photo = data['results'][0]
+                image_url = photo['urls']['regular']
+                photographer = photo['user']['name']
+                
+                print(f"  ✅ Found image by {photographer}")
+                
+                # Download image
+                img_response = requests.get(image_url, timeout=15)
+                if img_response.status_code == 200:
+                    img = Image.open(BytesIO(img_response.content))
+                    print(f"  ✅ Downloaded image ({img.size[0]}x{img.size[1]}px)")
+                    return img, photographer
+        
+        print(f"  ⚠️  No suitable images found on Unsplash")
+        return None, None
+        
+    except Exception as e:
+        print(f"  ❌ Unsplash error: {e}")
+        return None, None
+
 def generate_and_save_image(topic):
-    """Generate hero banner image using Gemini's Nano Banana."""
-    # Use Gemini's Nano Banana (gemini-2.5-flash-image) for image generation
-    # Alternative: gemini-3-pro-image-preview for higher quality (up to 4K) but slower
+    """Generate hero banner image using multiple fallback strategies."""
+    # Using gemini-2.5-flash-image for image generation
+    # Fallback chain: Gemini → Unsplash → Placeholder
     image_prompt = f"""Create a professional, high-quality cybersecurity hero banner for the topic: {topic}.
     
     Style: Modern digital art with a futuristic tech aesthetic
@@ -100,49 +209,61 @@ def generate_and_save_image(topic):
     os.makedirs(img_dir, exist_ok=True)
     img_path = f"{img_dir}/1-hero-banner.png"
     
+    # Strategy 1: Try Gemini AI image generation
     try:
-        # Generate the image using Nano Banana
+        print("  🎨 Trying Gemini AI image generation...")
         response = client.models.generate_content(
             model='gemini-2.5-flash-image',
             contents=[image_prompt],
             config=types.GenerateContentConfig(
-                response_modalities=['IMAGE'],  # Only return image, no text
-                image_config=types.ImageConfig(
-                    aspect_ratio='16:9',  # Perfect for blog banners
-                )
+                response_modalities=['IMAGE'],
+                image_config=types.ImageConfig(aspect_ratio='16:9')
             )
         )
         
         # Extract and save the image
-        image_saved = False
         for part in response.parts:
             if part.inline_data is not None and part.inline_data.mime_type.startswith('image/'):
                 with open(img_path, 'wb') as f:
                     f.write(part.inline_data.data)
-                print(f"✓ Successfully generated image: {img_path}")
-                image_saved = True
-                break
+                print(f"  ✅ Gemini generated image successfully!")
+                return img_path
         
-        if not image_saved:
-            raise Exception("No image data in response")
+        raise Exception("No image data in Gemini response")
             
     except Exception as e:
-        print(f"⚠ Image generation failed: {e}")
-        print(f"  Possible reasons: API quota exceeded, network issue, or model access restricted")
-        print(f"  Creating placeholder file to prevent workflow failure...")
-        # Create a tiny placeholder PNG (1x1 transparent pixel)
-        # This is a valid PNG file that won't break Jekyll
-        placeholder_png = b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01\x00\x00\x00\x01\x08\x06\x00\x00\x00\x1f\x15\xc4\x89\x00\x00\x00\nIDATx\x9cc\x00\x01\x00\x00\x05\x00\x01\r\n-\xb4\x00\x00\x00\x00IEND\xaeB`\x82'
-        with open(img_path, 'wb') as f:
-            f.write(placeholder_png)
-        print(f"  Placeholder image created. You can manually replace it later.")
+        error_msg = str(e)
+        if "429" in error_msg or "quota" in error_msg.lower():
+            print(f"  ⚠️  Gemini quota exceeded, trying Unsplash...")
+        else:
+            print(f"  ⚠️  Gemini failed ({error_msg[:50]}...), trying Unsplash...")
+    
+    # Strategy 2: Try Unsplash stock photos
+    try:
+        img, photographer = get_unsplash_image(topic)
+        if img:
+            img.save(img_path)
+            print(f"  ✅ Using Unsplash image by {photographer}")
+            print(f"  💡 Tip: You can add attribution in the blog post if desired")
+            return img_path
+    except Exception as e:
+        print(f"  ⚠️  Unsplash fallback failed: {e}")
+    
+    # Strategy 3: Create placeholder
+    print(f"  ⚠️  All image sources exhausted, creating placeholder...")
+    placeholder_png = b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01\x00\x00\x00\x01\x08\x06\x00\x00\x00\x1f\x15\xc4\x89\x00\x00\x00\nIDATx\x9cc\x00\x01\x00\x00\x05\x00\x01\r\n-\xb4\x00\x00\x00\x00IEND\xaeB`\x82'
+    with open(img_path, 'wb') as f:
+        f.write(placeholder_png)
+    print(f"  ✅ Placeholder created (you can replace it manually later)")
 
     return img_path
 
 def upload_to_github(md_filename, md_content, img_path):
     """Upload markdown post and image to GitHub repository."""
     try:
-        g = Github(GH_TOKEN)
+        from github import Auth
+        auth = Auth.Token(GH_TOKEN)
+        g = Github(auth=auth)
         repo = g.get_repo(REPO_NAME)
         
         # Upload Image (if it's not empty)

@@ -189,6 +189,44 @@ def validate_and_clean_content(content):
     
     return content
 
+def generate_image_search_query(topic):
+    """Generate a concise, effective Unsplash search query using AI."""
+    prompt = f"""
+    Generate a single, highly effective search query for Unsplash to find a relevant image for this blog topic.
+    
+    TOPIC: {topic}
+    
+    REQUIREMENTS:
+    - Return ONLY 1-2 words maximum (preferably 1 word)
+    - Must be a common, visual term that returns many stock photo results
+    - Focus on visual concepts, not abstract ideas
+    - Choose words that photographers commonly tag
+    - Avoid technical jargon or niche terms
+    
+    Examples:
+    - "Zero Trust Architecture" → "security"
+    - "Ransomware Evolution" → "hacker"
+    - "Post-quantum cryptography" → "encryption"
+    - "IoT Security" → "technology"
+    - "Cloud Security" → "cloud"
+    
+    Return ONLY the search query word(s), nothing else.
+    """
+    
+    try:
+        response = client.models.generate_content(
+            model='gemini-2.5-flash',
+            contents=prompt
+        )
+        search_query = response.text.strip().lower()
+        # Remove quotes if AI added them
+        search_query = search_query.strip('"\'')
+        return search_query
+    except Exception as e:
+        print(f"  ⚠️  AI query generation failed: {e}")
+        # Fallback to simple extraction
+        return topic.split(':')[0].split('-')[0].strip().lower()
+
 def get_unsplash_image(topic):
     """Fetch image from Unsplash as fallback."""
     # Check if Unsplash API key is available
@@ -197,8 +235,9 @@ def get_unsplash_image(topic):
         return None, None
     
     try:
-        # Search for relevant image
-        search_query = topic.lower().replace('post-quantum', 'quantum').replace('readiness for', '')
+        # Generate AI-powered search query
+        print(f"  🤖 Generating optimal search query with AI...")
+        search_query = generate_image_search_query(topic)
         print(f"  📸 Searching Unsplash for: '{search_query}'")
         
         response = requests.get(

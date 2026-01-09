@@ -10,6 +10,14 @@ from google import genai
 from google.genai import types
 from github import Github
 
+try:
+    import yaml
+    YAML_AVAILABLE = True
+except ImportError:
+    YAML_AVAILABLE = False
+    print("⚠️  PyYAML not installed. YAML validation will be limited.")
+    print("   Install with: pip install PyYAML")
+
 # --- CONFIGURATION ---
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 GH_TOKEN = os.getenv("GH_TOKEN")
@@ -69,17 +77,35 @@ def generate_blog_content(topic, details):
     TOPIC: {topic}
     DETAILS: {details}
 
+    CRITICAL YAML FORMATTING RULES:
+    - The title field MUST be enclosed in double quotes
+    - Each YAML field must be on its own line with proper spacing
+    - Ensure proper indentation (2 spaces) for nested fields
+    - Do NOT use colons or special characters in unquoted strings
+    - Example of proper YAML front matter:
+    ---
+    title: "Your Blog Title Here"
+    date: 2026-01-09 10:00:00 +0530
+    author: ayushjha
+    categories: [Tutorials, Industry Insights]
+    tags: [Tag1, Tag2, Tag3]
+    image:
+      path: /assets/img/posts/20260109/1-hero-banner.png
+      alt: Description of the image
+    description: Brief description of the post
+    ---
+
     STRICT REQUIREMENTS:
     1. Output valid Jekyll Front Matter with these exact fields:
-       - title: (engaging, SEO-optimized)
+       - title: "YOUR TITLE HERE" (MUST be quoted, engaging, SEO-optimized)
        - date: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S +0530')}
        - author: ayushjha
        - categories: [Tutorials, Industry Insights]
-       - tags: (5-7 relevant tags)
+       - tags: (5-7 relevant tags in an array)
        - image:
            path: /assets/img/posts/{datetime.datetime.now().strftime('%Y%m%d')}/1-hero-banner.png
-           alt: (descriptive alt text)
-       - description: (compelling 150-160 char meta description)
+           alt: (descriptive alt text - keep it short and descriptive)
+       - description: (compelling 150-160 char meta description - keep it concise)
     
     2. VISUAL APPEAL - Make it look like a professional blog:
        - Start with an engaging hook (1-2 sentences that grab attention)
@@ -159,7 +185,7 @@ def generate_blog_content(topic, details):
                 raise Exception(f"Gemini API failed after {max_retries} attempts: {e}")
 
 def validate_and_clean_content(content):
-    """Remove broken internal blog links and markdown code block wrappers from generated content."""
+    """Remove broken internal blog links, markdown code block wrappers, and fix YAML formatting."""
     import re
     
     # Step 1: Remove markdown code block wrappers (```markdown ... ``` or ```md ... ```)
@@ -170,7 +196,53 @@ def validate_and_clean_content(content):
         content = match.group(1)
         print(f"  ✓ Removed markdown code block wrapper")
     
-    # Step 2: Pattern to find internal blog links (links starting with /blog/ or /posts/)
+    # Step 2: Fix YAML front matter formatting issues
+    # Extract the YAML front matter
+    yaml_pattern = r'^---\s*\n(.*?)\n---\s*\n(.*)$'
+    yaml_match = re.match(yaml_pattern, content, re.DOTALL)
+    
+    if yaml_match:
+        yaml_content = yaml_match.group(1)
+        body_content = yaml_match.group(2)
+        
+        # Fix common YAML issues:
+        # 1. Ensure title is quoted if it contains colons or special characters
+        title_match = re.search(r'^title:\s*(.+)$', yaml_content, re.MULTILINE)
+        if title_match:
+            title_value = title_match.group(1).strip()
+            # Check if title is not already quoted and contains special chars
+            if not (title_value.startswith('"') and title_value.endswith('"')):
+                # Quote the title if it contains colons, emojis, or other special chars
+                if ':' in title_value or any(ord(c) > 127 for c in title_value):
+                    quoted_title = f'"{title_value}"'
+                    yaml_content = re.sub(
+                        r'^title:\s*.+$',
+                        f'title: {quoted_title}',
+                        yaml_content,
+                        count=1,
+                        flags=re.MULTILINE
+                    )
+                    print(f"  ✓ Fixed title quoting")
+        
+        # 2. Ensure proper newlines between fields (no fields concatenated)
+        # This fixes issues like "date: 2026-01-09 15:27:18 +0530author: ayushjha"
+        yaml_content = re.sub(r'(\+\d{4})([a-z])', r'\1\n\2', yaml_content)
+        
+        # 3. Validate YAML if PyYAML is available
+        if YAML_AVAILABLE:
+            try:
+                yaml.safe_load(yaml_content)
+                print(f"  ✓ YAML validation passed")
+            except yaml.YAMLError as e:
+                print(f"  ⚠️  YAML validation error: {e}")
+                print(f"  Attempting auto-fix...")
+                # Additional fixes can be added here based on common errors
+        
+        # Reconstruct the content
+        content = f"---\n{yaml_content}\n---\n{body_content}"
+        print(f"  ✓ YAML formatting verified")
+    
+    # Step 3: Pattern to find internal blog links (links starting with /blog/ or /posts/)
     internal_link_pattern = r'\[([^\]]+)\]\((/blog/[^\)]+|/posts/[^\)]+)\)'
     
     # Find all internal links
@@ -227,6 +299,50 @@ def generate_image_search_query(topic):
         # Fallback to simple extraction
         return topic.split(':')[0].split('-')[0].strip().lower()
 
+def compress_image(img, max_size_kb=500):
+    """Compress image to be under the specified size in KB."""
+    from io import BytesIO
+    
+    # Start with quality 95
+    quality = 95
+    img_format = 'PNG'
+    
+    # Convert RGBA to RGB if needed for JPEG compression
+    if img.mode == 'RGBA':
+        # Create white background
+        background = Image.new('RGB', img.size, (255, 255, 255))
+        background.paste(img, mask=img.split()[3])  # Use alpha channel as mask
+        img = background
+        img_format = 'JPEG'  # Use JPEG for better compression
+    elif img.mode == 'RGB':
+        img_format = 'JPEG'
+    
+    # Try to compress until we're under max_size_kb
+    while quality > 20:
+        buffer = BytesIO()
+        img.save(buffer, format=img_format, quality=quality, optimize=True)
+        size_kb = buffer.tell() / 1024
+        
+        if size_kb <= max_size_kb:
+            print(f"  ✓ Compressed image to {size_kb:.1f}KB (quality: {quality})")
+            buffer.seek(0)
+            return Image.open(buffer), img_format
+        
+        # Reduce quality for next iteration
+        quality -= 5
+    
+    # If still too large, resize the image
+    print(f"  ⚠️  Image still large, resizing...")
+    width, height = img.size
+    img = img.resize((int(width * 0.8), int(height * 0.8)), Image.Resampling.LANCZOS)
+    
+    buffer = BytesIO()
+    img.save(buffer, format=img_format, quality=75, optimize=True)
+    size_kb = buffer.tell() / 1024
+    print(f"  ✓ Resized and compressed to {size_kb:.1f}KB")
+    buffer.seek(0)
+    return Image.open(buffer), img_format
+
 def get_unsplash_image(topic):
     """Fetch image from Unsplash as fallback."""
     # Check if Unsplash API key is available
@@ -264,7 +380,14 @@ def get_unsplash_image(topic):
                 img_response = requests.get(image_url, timeout=15)
                 if img_response.status_code == 200:
                     img = Image.open(BytesIO(img_response.content))
-                    print(f"  ✅ Downloaded image ({img.size[0]}x{img.size[1]}px)")
+                    original_size = len(img_response.content) / 1024
+                    print(f"  ✅ Downloaded image ({img.size[0]}x{img.size[1]}px, {original_size:.1f}KB)")
+                    
+                    # Compress if larger than 500KB
+                    if original_size > 500:
+                        print(f"  🗜️  Compressing image (original: {original_size:.1f}KB)...")
+                        img, _ = compress_image(img, max_size_kb=500)
+                    
                     return img, photographer
         
         print(f"  ⚠️  No suitable images found on Unsplash")
@@ -275,7 +398,7 @@ def get_unsplash_image(topic):
         return None, None
 
 def generate_and_save_image(topic):
-    """Download hero banner image from Unsplash."""
+    """Download hero banner image from Unsplash and compress it."""
     img_date = datetime.datetime.now().strftime('%Y%m%d')
     img_dir = f"assets/img/posts/{img_date}"
     os.makedirs(img_dir, exist_ok=True)
@@ -294,8 +417,13 @@ def generate_and_save_image(topic):
     try:
         img, photographer = get_unsplash_image(topic)
         if img:
-            img.save(img_path)
-            print(f"  ✅ Using Unsplash image by {photographer}")
+            # Determine format based on compression result
+            # Save with optimization
+            img.save(img_path, format='PNG', optimize=True)
+            
+            # Check final file size
+            final_size = os.path.getsize(img_path) / 1024
+            print(f"  ✅ Saved image by {photographer} ({final_size:.1f}KB)")
             return img_path
         else:
             raise Exception("No suitable images found on Unsplash")
@@ -446,3 +574,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

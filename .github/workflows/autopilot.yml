@@ -19,7 +19,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install Dependencies
-        run: pip install google-genai PyGithub requests Pillow
+        run: pip install google-genai PyGithub requests Pillow PyYAML
       - name: Run Autopilot
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}

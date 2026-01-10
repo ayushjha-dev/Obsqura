@@ -66,7 +66,7 @@ def get_next_topic():
         return current_day, match.group(1).strip(), (match.group(2) or "").strip()
     return None, None, None
 
-def generate_blog_content(topic, details):
+def generate_blog_content(topic, details, day):
     """Generate blog post content using Gemini AI with enhanced visual appeal."""
     # Use latest stable gemini-2.5-flash for text generation (faster and more cost-effective)
     # Alternative: gemini-2.5-pro for more complex reasoning tasks
@@ -90,7 +90,7 @@ def generate_blog_content(topic, details):
     categories: [Tutorials, Industry Insights]
     tags: [Tag1, Tag2, Tag3]
     image:
-      path: /assets/img/posts/20260109/1-hero-banner.png
+      path: /assets/img/posts/day-1/1-hero-banner.png
       alt: Description of the image
     description: Brief description of the post
     ---
@@ -103,7 +103,7 @@ def generate_blog_content(topic, details):
        - categories: [Tutorials, Industry Insights]
        - tags: (5-7 relevant tags in an array)
        - image:
-           path: /assets/img/posts/{datetime.datetime.now().strftime('%Y%m%d')}/1-hero-banner.png
+           path: /assets/img/posts/day-{day}/1-hero-banner.png
            alt: (descriptive alt text - keep it short and descriptive)
        - description: (compelling 150-160 char meta description - keep it concise)
     
@@ -397,10 +397,9 @@ def get_unsplash_image(topic):
         print(f"  ❌ Unsplash error: {e}")
         return None, None
 
-def generate_and_save_image(topic):
+def generate_and_save_image(topic, day):
     """Download hero banner image from Unsplash and compress it."""
-    img_date = datetime.datetime.now().strftime('%Y%m%d')
-    img_dir = f"assets/img/posts/{img_date}"
+    img_dir = f"assets/img/posts/day-{day}"
     os.makedirs(img_dir, exist_ok=True)
     img_path = f"{img_dir}/1-hero-banner.png"
     
@@ -527,7 +526,7 @@ def main():
     try:
         # Step 1: Generate blog content
         print("\n1️⃣  Generating blog content with AI...")
-        md_content = generate_blog_content(topic, details)
+        md_content = generate_blog_content(topic, details, day)
         print(f"   ✓ Content generated ({len(md_content)} characters)")
         
         # Step 1.5: Validate and clean content
@@ -537,7 +536,7 @@ def main():
         
         # Step 2: Generate hero image
         print("\n2️⃣  Generating hero banner image...")
-        img_path = generate_and_save_image(topic)
+        img_path = generate_and_save_image(topic, day)
         
         # Step 3: Save locally
         clean_title = re.sub(r'[^a-z0-9]', '-', topic.lower()).strip('-')

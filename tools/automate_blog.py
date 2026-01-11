@@ -3,6 +3,7 @@ import datetime
 import re
 import json
 import sys
+import random
 import requests
 from io import BytesIO
 from PIL import Image
@@ -264,25 +265,27 @@ def validate_and_clean_content(content):
 def generate_image_search_query(topic):
     """Generate a concise, effective Unsplash search query using AI."""
     prompt = f"""
-    Generate a single, highly effective search query for Unsplash to find a relevant image for this blog topic.
+    Generate a specific, highly effective search query for Unsplash to find a relevant and UNIQUE image for this blog topic.
     
     TOPIC: {topic}
     
     REQUIREMENTS:
-    - Return ONLY 1-2 words maximum (preferably 1 word)
-    - Must be a common, visual term that returns many stock photo results
-    - Focus on visual concepts, not abstract ideas
-    - Choose words that photographers commonly tag
-    - Avoid technical jargon or niche terms
+    - Return 2-3 words that are SPECIFIC to this topic
+    - Make the query unique enough to get different results than other topics
+    - Must be visual terms that photographers commonly tag
+    - Focus on the main concept + descriptive adjective/noun
+    - Avoid being too generic (bad: "security", "technology")
     
     Examples:
-    - "Zero Trust Architecture" → "security"
-    - "Ransomware Evolution" → "hacker"
-    - "Post-quantum cryptography" → "encryption"
-    - "IoT Security" → "technology"
-    - "Cloud Security" → "cloud"
+    - "Zero Trust Architecture" → "zero trust network"
+    - "Ransomware Evolution" → "ransomware cyber attack"
+    - "Post-quantum cryptography" → "quantum encryption security"
+    - "IoT Security" → "smart home security"
+    - "Cloud Security" → "cloud security infrastructure"
+    - "AI in Cyber Defense" → "artificial intelligence security"
+    - "Social Engineering" → "phishing scam attack"
     
-    Return ONLY the search query word(s), nothing else.
+    Return ONLY the search query (2-3 words), nothing else.
     """
     
     try:
@@ -343,24 +346,28 @@ def compress_image(img, max_size_kb=500):
     buffer.seek(0)
     return Image.open(buffer), img_format
 
-def get_unsplash_image(topic):
-    """Fetch image from Unsplash as fallback."""
+def get_unsplash_image(topic, used_images=None):
+    """Fetch image from Unsplash with deduplication."""
     # Check if Unsplash API key is available
     if not UNSPLASH_ACCESS_KEY:
         print(f"  ⚠️  Unsplash API key not configured, skipping...")
-        return None, None
+        return None, None, None
+    
+    if used_images is None:
+        used_images = []
     
     try:
-        # Generate AI-powered search query
-        print(f"  🤖 Generating optimal search query with AI...")
+        # Generate AI-powered search query (now returns 2-3 words)
+        print(f"  🤖 Generating specific search query with AI...")
         search_query = generate_image_search_query(topic)
         print(f"  📸 Searching Unsplash for: '{search_query}'")
         
+        # Fetch 10 images instead of just 1
         response = requests.get(
             "https://api.unsplash.com/search/photos",
             params={
                 "query": search_query,
-                "per_page": 1,
+                "per_page": 10,  # Get 10 results for variety
                 "orientation": "landscape",
                 "client_id": UNSPLASH_ACCESS_KEY
             },
@@ -370,38 +377,80 @@ def get_unsplash_image(topic):
         if response.status_code == 200:
             data = response.json()
             if data.get('results'):
-                photo = data['results'][0]
-                image_url = photo['urls']['regular']
-                photographer = photo['user']['name']
+                # Filter out already used images
+                available_photos = [
+                    photo for photo in data['results']
+                    if photo['urls']['regular'] not in used_images
+                ]
                 
-                print(f"  ✅ Found image by {photographer}")
+                if not available_photos:
+                    print(f"  ⚠️  All images from this search have been used before")
+                    # Try a broader fallback search
+                    fallback_query = search_query.split()[0]  # Use first word only
+                    print(f"  🔄 Trying fallback search: '{fallback_query}'")
+                    response = requests.get(
+                        "https://api.unsplash.com/search/photos",
+                        params={
+                            "query": fallback_query,
+                            "per_page": 10,
+                            "orientation": "landscape",
+                            "client_id": UNSPLASH_ACCESS_KEY
+                        },
+                        timeout=10
+                    )
+                    if response.status_code == 200:
+                        data = response.json()
+                        available_photos = [
+                            photo for photo in data.get('results', [])
+                            if photo['urls']['regular'] not in used_images
+                        ]
                 
-                # Download image
-                img_response = requests.get(image_url, timeout=15)
-                if img_response.status_code == 200:
-                    img = Image.open(BytesIO(img_response.content))
-                    original_size = len(img_response.content) / 1024
-                    print(f"  ✅ Downloaded image ({img.size[0]}x{img.size[1]}px, {original_size:.1f}KB)")
+                if available_photos:
+                    # Randomly select one of the available images
+                    photo = random.choice(available_photos)
+                    image_url = photo['urls']['regular']
+                    photographer = photo['user']['name']
                     
-                    # Compress if larger than 500KB
-                    if original_size > 500:
-                        print(f"  🗜️  Compressing image (original: {original_size:.1f}KB)...")
-                        img, _ = compress_image(img, max_size_kb=500)
+                    print(f"  ✅ Selected image by {photographer} (from {len(available_photos)} options)")
                     
-                    return img, photographer
+                    # Download image
+                    img_response = requests.get(image_url, timeout=15)
+                    if img_response.status_code == 200:
+                        img = Image.open(BytesIO(img_response.content))
+                        original_size = len(img_response.content) / 1024
+                        print(f"  ✅ Downloaded image ({img.size[0]}x{img.size[1]}px, {original_size:.1f}KB)")
+                        
+                        # Compress if larger than 500KB
+                        if original_size > 500:
+                            print(f"  🗜️  Compressing image (original: {original_size:.1f}KB)...")
+                            img, _ = compress_image(img, max_size_kb=500)
+                        
+                        # Return image, photographer, and URL for tracking
+                        return img, photographer, image_url
         
         print(f"  ⚠️  No suitable images found on Unsplash")
-        return None, None
+        return None, None, None
         
     except Exception as e:
         print(f"  ❌ Unsplash error: {e}")
-        return None, None
+        return None, None, None
 
 def generate_and_save_image(topic, day):
     """Download hero banner image from Unsplash and compress it."""
     img_dir = f"assets/img/posts/day-{day}"
     os.makedirs(img_dir, exist_ok=True)
     img_path = f"{img_dir}/1-hero-banner.png"
+    
+    # Load used images from status.json
+    used_images = []
+    if os.path.exists(STATUS_FILE):
+        try:
+            with open(STATUS_FILE, 'r') as f:
+                status = json.load(f)
+                used_images = status.get('used_images', [])
+                print(f"  📋 Loaded {len(used_images)} previously used images")
+        except Exception as e:
+            print(f"  ⚠️  Could not load used images: {e}")
     
     # Check if Unsplash API key is available
     if not UNSPLASH_ACCESS_KEY:
@@ -410,11 +459,11 @@ def generate_and_save_image(topic, day):
         placeholder_png = b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01\x00\x00\x00\x01\x08\x06\x00\x00\x00\x1f\x15\xc4\x89\x00\x00\x00\nIDATx\x9cc\x00\x01\x00\x00\x05\x00\x01\r\n-\xb4\x00\x00\x00\x00IEND\xaeB`\x82'
         with open(img_path, 'wb') as f:
             f.write(placeholder_png)
-        return img_path
+        return img_path, None
     
-    # Get image from Unsplash
+    # Get image from Unsplash (with deduplication)
     try:
-        img, photographer = get_unsplash_image(topic)
+        img, photographer, image_url = get_unsplash_image(topic, used_images)
         if img:
             # Determine format based on compression result
             # Save with optimization
@@ -422,8 +471,8 @@ def generate_and_save_image(topic, day):
             
             # Check final file size
             final_size = os.path.getsize(img_path) / 1024
-            print(f"  ✅ Saved image by {photographer} ({final_size:.1f}KB)")
-            return img_path
+            print(f"  ✅ Saved unique image by {photographer} ({final_size:.1f}KB)")
+            return img_path, image_url
         else:
             raise Exception("No suitable images found on Unsplash")
     except Exception as e:
@@ -432,7 +481,7 @@ def generate_and_save_image(topic, day):
         placeholder_png = b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01\x00\x00\x00\x01\x08\x06\x00\x00\x00\x1f\x15\xc4\x89\x00\x00\x00\nIDATx\x9cc\x00\x01\x00\x00\x05\x00\x01\r\n-\xb4\x00\x00\x00\x00IEND\xaeB`\x82'
         with open(img_path, 'wb') as f:
             f.write(placeholder_png)
-        return img_path
+        return img_path, None
 
 def upload_to_github(md_filename, md_content, img_path, status_data=None):
     """Upload markdown post, image, and status.json to GitHub repository."""
@@ -536,7 +585,7 @@ def main():
         
         # Step 2: Generate hero image
         print("\n2️⃣  Generating hero banner image...")
-        img_path = generate_and_save_image(topic, day)
+        img_path, image_url = generate_and_save_image(topic, day)
         
         # Step 3: Save locally
         clean_title = re.sub(r'[^a-z0-9]', '-', topic.lower()).strip('-')
@@ -548,8 +597,27 @@ def main():
             f.write(md_content)
         print(f"\n3️⃣  Saved locally: {local_post_path}")
         
-        # Step 4: Prepare status update
-        status_data = {"next_day": day + 1, "last_processed": topic}
+        # Step 4: Prepare status update with image tracking
+        # Load existing used images
+        used_images = []
+        if os.path.exists(STATUS_FILE):
+            try:
+                with open(STATUS_FILE, 'r') as f:
+                    existing_status = json.load(f)
+                    used_images = existing_status.get('used_images', [])
+            except:
+                pass
+        
+        # Add new image URL if available
+        if image_url and image_url not in used_images:
+            used_images.append(image_url)
+            print(f"  📝 Tracking image URL (total tracked: {len(used_images)})")
+        
+        status_data = {
+            "next_day": day + 1,
+            "last_processed": topic,
+            "used_images": used_images
+        }
         
         # Save status locally first
         os.makedirs(os.path.dirname(STATUS_FILE), exist_ok=True)

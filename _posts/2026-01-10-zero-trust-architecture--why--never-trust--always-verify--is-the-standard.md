@@ -1,6 +1,6 @@
 ---
 title: "Zero Trust Architecture: Why 'Never Trust, Always Verify' is the Modern Security Standard"
-date: 2026-01-10 11:35:30 +0530
+date: 2026-01-11 11:35:30 +0530
 author: ayushjha
 categories: [Tutorials, Industry Insights]
 tags: [ZeroTrust, Cybersecurity, IdentitySecurity, RemoteWork, IAM, SASE, MFA, CloudSecurity]

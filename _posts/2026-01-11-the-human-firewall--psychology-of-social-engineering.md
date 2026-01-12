@@ -1,6 +1,6 @@
 ---
 title: "The Human Firewall: Mastering the Psychology of Social Engineering to Combat Modern Threats"
-date: 2026-01-11 23:42:21 +0530
+date: 2026-01-12 23:42:21 +0530
 author: ayushjha
 categories: [Tutorials, Industry Insights]
 tags: [social engineering, phishing, cybersecurity, human element, security awareness, psychology, cyber resilience]

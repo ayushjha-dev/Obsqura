@@ -10,6 +10,7 @@ from PIL import Image
 from google import genai
 from google.genai import types
 from github import Github
+from datetime import timezone, timedelta
 
 try:
     import yaml
@@ -44,6 +45,13 @@ if not UNSPLASH_ACCESS_KEY:
 
 # Initialize the NEW Google GenAI client
 client = genai.Client(api_key=GEMINI_API_KEY)
+
+def get_ist_time():
+    """Get current time in IST (India Standard Time) timezone."""
+    # IST is UTC+5:30
+    ist_offset = timedelta(hours=5, minutes=30)
+    ist_tz = timezone(ist_offset)
+    return datetime.datetime.now(ist_tz)
 
 def get_next_topic():
     """Get the next unprocessed topic from topics.txt."""
@@ -99,7 +107,7 @@ def generate_blog_content(topic, details, day):
     STRICT REQUIREMENTS:
     1. Output valid Jekyll Front Matter with these exact fields:
        - title: "YOUR TITLE HERE" (MUST be quoted, engaging, SEO-optimized)
-       - date: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S +0530')}
+       - date: {get_ist_time().strftime('%Y-%m-%d %H:%M:%S %z')}
        - author: ayushjha
        - categories: [Tutorials, Industry Insights]
        - tags: (5-7 relevant tags in an array)
@@ -589,7 +597,7 @@ def main():
         
         # Step 3: Save locally
         clean_title = re.sub(r'[^a-z0-9]', '-', topic.lower()).strip('-')
-        md_filename = f"{datetime.datetime.now().strftime('%Y-%m-%d')}-{clean_title}.md"
+        md_filename = f"{get_ist_time().strftime('%Y-%m-%d')}-{clean_title}.md"
         
         local_post_path = f"_posts/{md_filename}"
         os.makedirs("_posts", exist_ok=True)

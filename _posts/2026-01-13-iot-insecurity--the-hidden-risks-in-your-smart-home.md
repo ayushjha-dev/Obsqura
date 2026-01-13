@@ -1,6 +1,6 @@
 ---
 title: "IoT Insecurity: Your Smart Home's Silent Saboteur and Botnet Battleground"
-date: 2026-01-13 23:41:02 +0530
+date: 2026-01-13 10:00:00 +0530
 author: ayushjha
 categories: [Tutorials, Industry Insights]
 tags: [IoT security, botnets, smart home, cybersecurity, network security, device vulnerability, Mirai, firmware updates]
@@ -92,14 +92,14 @@ Here’s how to fortify your digital perimeter:
 
 Here’s a quick comparison of good versus bad IoT security practices:
 
-| Feature/Practice           | Insecure (Botnet Risk)                 | Secure (Botnet Defense)                   |
-| :------------------------- | :------------------------------------- | :---------------------------------------- |
-| **Passwords**              | Default / Easy to guess (`admin/1234`) | Strong, unique, complex, managed           |
-| **Firmware Updates**       | Never / Rarely checks                  | Automatic / Regular manual checks         |
-| **Network Placement**      | All devices on primary network         | Segmented (VLAN/Guest network) for IoT    |
-| **Device Selection**       | Cheapest, unknown brand                | Reputable brands, security-focused         |
-| **UPnP**                   | Enabled by default                     | Disabled                                  |
-| **Traffic Monitoring**     | None                                   | Basic monitoring for anomalies            |
+| Feature/Practice       | Insecure (Botnet Risk)                 | Secure (Botnet Defense)                |
+| :--------------------- | :------------------------------------- | :------------------------------------- |
+| **Passwords**          | Default / Easy to guess (`admin/1234`) | Strong, unique, complex, managed       |
+| **Firmware Updates**   | Never / Rarely checks                  | Automatic / Regular manual checks      |
+| **Network Placement**  | All devices on primary network         | Segmented (VLAN/Guest network) for IoT |
+| **Device Selection**   | Cheapest, unknown brand                | Reputable brands, security-focused     |
+| **UPnP**               | Enabled by default                     | Disabled                               |
+| **Traffic Monitoring** | None                                   | Basic monitoring for anomalies         |
 
 ---
 

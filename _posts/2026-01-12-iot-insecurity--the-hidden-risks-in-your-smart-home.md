@@ -1,6 +1,6 @@
 ---
 title: "IoT Insecurity: Your Smart Home's Silent Saboteur and Botnet Battleground"
-date: 2026-01-12 23:41:02 +0530
+date: 2026-01-13 23:41:02 +0530
 author: ayushjha
 categories: [Tutorials, Industry Insights]
 tags: [IoT security, botnets, smart home, cybersecurity, network security, device vulnerability, Mirai, firmware updates]

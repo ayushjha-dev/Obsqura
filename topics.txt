@@ -1,0 +1,187 @@
+Day 1
+Topic: Readiness for Post-quantum cryptography
+Additional Details: Impact of PQC on current encryption standards and the transition timeline.
+
+Day 2
+Topic: The Evolution of Ransomware: From Locky to RaaS
+Additional Details: How ransomware became a service and what businesses should do.
+
+Day 3
+Topic: Zero Trust Architecture: Why "Never Trust, Always Verify" is the Standard
+Additional Details: Implementing identity-based security in a remote-first world.
+
+Day 4
+Topic: AI in Cyber Defense: Detecting Threats at Machine Speed
+Additional Details: Using machine learning to identify anomalies before they become breaches.
+
+Day 5
+Topic: The Human Firewall: Psychology of Social Engineering
+Additional Details: Why humans remain the weakest link and how to train against phishing.
+
+Day 6
+Topic: IoT Insecurity: The Hidden Risks in Your Smart Home
+Additional Details: How "smart" devices become entry points for botnets.
+
+Day 7
+Topic: Cloud Misconfigurations: The #1 Entry Point for Data Breaches
+Additional Details: Real-world examples of S3 bucket leaks and how to automate cloud audits.
+
+Day 8
+Topic: Supply Chain Attacks: When Your Vendor Becomes Your Vulnerability
+Additional Details: Lessons from SolarWinds and strategies for third-party risk management.
+
+Day 9
+Topic: Deepfake Technology: The New Frontier of Identity Fraud
+Additional Details: Voice cloning and video manipulation in social engineering attacks.
+
+Day 10
+Topic: Blockchain Security: Beyond Cryptocurrency Scams
+Additional Details: Smart contract vulnerabilities and the importance of code audits.
+
+Day 11
+Topic: DNS Security: The Forgotten Layer of Network Defense
+Additional Details: DNS hijacking, tunneling, and implementing DNSSEC protocols.
+
+Day 12
+Topic: Memory Forensics: Uncovering Fileless Malware
+Additional Details: Techniques for analyzing volatile data and detecting living-off-the-land attacks.
+
+Day 13
+Topic: The Dark Web Economy: Understanding Underground Markets
+Additional Details: How stolen credentials are traded and the lifecycle of compromised data.
+
+Day 14
+Topic: Container Security: Securing Docker and Kubernetes Environments
+Additional Details: Image scanning, runtime protection, and orchestration vulnerabilities.
+
+Day 15
+Topic: 5G Networks: New Speed, New Security Challenges
+Additional Details: Vulnerabilities in network slicing and edge computing architectures.
+
+Day 16
+Topic: Biometric Authentication: Convenience vs. Security
+Additional Details: Spoofing attacks on fingerprint and facial recognition systems.
+
+Day 17
+Topic: Insider Threats: The Enemy Within
+Additional Details: Behavioral analytics and monitoring strategies for detecting malicious insiders.
+
+Day 18
+Topic: API Security: Protecting the Backbone of Modern Applications
+Additional Details: Common API vulnerabilities and implementing OAuth 2.0 securely.
+
+Day 19
+Topic: Quantum Key Distribution: Unhackable Communication?
+Additional Details: The physics behind QKD and practical deployment challenges.
+
+Day 20
+Topic: Red Teaming: Thinking Like the Adversary
+Additional Details: Penetration testing methodologies and building an offensive security program.
+
+Day 21
+Topic: Privacy-Preserving Technologies: Homomorphic Encryption
+Additional Details: Computing on encrypted data and its applications in sensitive industries.
+
+Day 22
+Topic: SIEM vs. SOAR: Building an Effective Security Operations Center
+Additional Details: Automation strategies for incident response and threat hunting.
+
+Day 23
+Topic: Securing Industrial Control Systems: SCADA Under Attack
+Additional Details: Critical infrastructure vulnerabilities and the Stuxnet legacy.
+
+Day 24
+Topic: Password Managers: Are They Truly Secure?
+Additional Details: Architecture of password vaults and risks of master password compromise.
+
+Day 25
+Topic: Browser Security: Defending Against Drive-by Downloads
+Additional Details: Understanding browser exploitation and the role of sandboxing.
+
+Day 26
+Topic: Email Authentication: SPF, DKIM, and DMARC Explained
+Additional Details: Preventing email spoofing and phishing at the protocol level.
+
+Day 27
+Topic: VPN Security: When Your Tunnel Has Holes
+Additional Details: VPN protocol weaknesses and the rise of WireGuard.
+
+Day 28
+Topic: Threat Intelligence Sharing: Collective Defense Strategies
+Additional Details: Using STIX/TAXII frameworks for automated threat data exchange.
+
+Day 29
+Topic: Mobile Device Management: BYOD in the Enterprise
+Additional Details: Balancing employee privacy with corporate security requirements.
+
+Day 30
+Topic: Cyber Insurance: Understanding Coverage and Requirements
+Additional Details: Policy terms, incident response requirements, and claim processes.
+
+Day 31
+Topic: Hardware Security Modules: The Fort Knox of Cryptographic Keys
+Additional Details: HSM architecture and use cases in payment processing and PKI.
+
+Day 32
+Topic: Web Application Firewalls: Beyond Basic Filtering
+Additional Details: Machine learning-based WAFs and protecting against OWASP Top 10.
+
+Day 33
+Topic: Secure Software Development: DevSecOps in Practice
+Additional Details: Shifting security left and integrating testing into CI/CD pipelines.
+
+Day 34
+Topic: Cryptocurrency Wallet Security: Self-Custody Best Practices
+Additional Details: Hardware wallets, seed phrase management, and multisig solutions.
+
+Day 35
+Topic: Privacy Regulations: GDPR, CCPA, and Global Compliance
+Additional Details: Data residency requirements and the right to be forgotten.
+
+Day 36
+Topic: Network Segmentation: Limiting Lateral Movement
+Additional Details: Micro-segmentation strategies and software-defined perimeters.
+
+Day 37
+Topic: Adversarial Machine Learning: Poisoning AI Models
+Additional Details: How attackers manipulate training data and defense techniques.
+
+Day 38
+Topic: Endpoint Detection and Response: The Next Generation Antivirus
+Additional Details: Behavioral analysis and automated threat remediation capabilities.
+
+Day 39
+Topic: Secure Boot and Trusted Platform Module: Hardware Root of Trust
+Additional Details: UEFI security features and protecting the boot process from rootkits.
+
+Day 40
+Topic: Bug Bounty Programs: Crowdsourced Vulnerability Discovery
+Additional Details: Setting up effective programs and managing responsible disclosure.
+
+Day 41
+Topic: Credential Stuffing: The Danger of Password Reuse
+Additional Details: Preventing automated login attacks with rate limiting and CAPTCHA.
+
+Day 42
+Topic: Digital Forensics: The Art of Incident Investigation
+Additional Details: Chain of custody, evidence preservation, and forensic toolkits.
+
+Day 43
+Topic: Wireless Security: Beyond WPA3
+Additional Details: Evil twin attacks, rogue access points, and 802.1X authentication.
+
+Day 44
+Topic: Code Signing: Establishing Software Authenticity
+Additional Details: PKI for developers and preventing malware distribution.
+
+Day 45
+Topic: Security Awareness Training: Measuring Effectiveness
+Additional Details: Simulated phishing campaigns and building a security-first culture.
+
+Day 46
+Topic: Distributed Denial of Service: Modern DDoS Mitigation
+Additional Details: Volumetric attacks, application-layer DDoS, and CDN-based protection.
+
+Day 47
+Topic: Serverless Security: Protecting Function-as-a-Service Architectures
+Additional Details: Lambda security best practices and event-driven threat models.

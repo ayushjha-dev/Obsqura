@@ -1,0 +1,300 @@
+<!-- Cusdis Comments -->
+<div class="comments-section mt-4 pt-4">
+  <h2 class="mb-3"><i class="fas fa-comments me-2"></i>Comments</h2>
+  
+  <!-- Cusdis div with theme attributes -->
+  <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="6604d095-543f-4200-81fd-5569719ce021"
+    data-page-id="{{ page.url | slugify }}"
+    data-page-url="{{ page.url | absolute_url }}"
+    data-page-title="{{ page.title | escape }}"
+  ></div>
+  
+</div>
+
+<!-- Load Cusdis script -->
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+
+<script>
+  (function() {
+    // Detect current theme
+    function getCurrentTheme() {
+      var htmlMode = document.documentElement.getAttribute('data-mode');
+      if (htmlMode === 'light') return 'light';
+      if (htmlMode === 'dark') return 'dark';
+      
+      try {
+        var storedMode = localStorage.getItem('mode');
+        if (storedMode) return storedMode;
+      } catch(e) {}
+      
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
+      }
+      
+      return 'light';
+    }
+    
+    // Set initial theme
+    function setInitialTheme() {
+      var thread = document.getElementById('cusdis_thread');
+      if (thread) {
+        var theme = getCurrentTheme();
+        thread.setAttribute('data-theme', theme);
+      }
+    }
+    
+    // Inject custom styles into Cusdis iframe
+    function injectCusdisStyles() {
+      var iframe = document.querySelector('#cusdis_thread iframe');
+      if (!iframe) {
+        setTimeout(injectCusdisStyles, 500);
+        return;
+      }
+      
+      var isDark = getCurrentTheme() === 'dark';
+      
+      try {
+        var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+        if (!iframeDoc) {
+          setTimeout(injectCusdisStyles, 500);
+          return;
+        }
+        
+        // Remove existing custom styles if any
+        var existingStyle = iframeDoc.getElementById('custom-theme-styles');
+        if (existingStyle) {
+          existingStyle.remove();
+        }
+        
+        // Create new style element
+        var style = iframeDoc.createElement('style');
+        style.id = 'custom-theme-styles';
+        style.textContent = isDark ? `
+          /* Dark theme custom styles */
+          body {
+            background-color: #1b1b1e !important;
+            color: #e8eaed !important;
+          }
+          
+          input[type="text"],
+          input[type="email"],
+          textarea {
+            background-color: #2d2d30 !important;
+            color: #e8eaed !important;
+            border: 1px solid #5a5a5d !important;
+          }
+          
+          input::placeholder,
+          textarea::placeholder {
+            color: #9ca3af !important;
+          }
+          
+          label {
+            color: #e8eaed !important;
+          }
+          
+          button {
+            background-color: #0d6efd !important;
+            color: #ffffff !important;
+          }
+          
+          /* Comment display */
+          .cusdis-comment,
+          [class*="comment"] {
+            color: #e8eaed !important;
+          }
+          
+          /* Scrollbar */
+          ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+          }
+          
+          ::-webkit-scrollbar-track {
+            background: #2d2d30;
+          }
+          
+          ::-webkit-scrollbar-thumb {
+            background: #4a4a4d;
+            border-radius: 4px;
+          }
+          
+          ::-webkit-scrollbar-thumb:hover {
+            background: #5a5a5d;
+          }
+        ` : `
+          /* Light theme custom styles */
+          body {
+            background-color: #ffffff !important;
+            color: #212529 !important;
+          }
+          
+          input[type="text"],
+          input[type="email"],
+          textarea {
+            background-color: #ffffff !important;
+            color: #212529 !important;
+            border: 1px solid #999 !important;
+          }
+          
+          input::placeholder,
+          textarea::placeholder {
+            color: #6c757d !important;
+          }
+          
+          label {
+            color: #212529 !important;
+          }
+          
+          /* Scrollbar */
+          ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+          }
+          
+          ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+          }
+          
+          ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+          }
+          
+          ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+          }
+        `;
+        
+        iframeDoc.head.appendChild(style);
+        console.log('Cusdis custom styles injected successfully');
+      } catch (e) {
+        console.log('Cannot inject styles into Cusdis iframe (cross-origin):', e.message);
+        // Fallback: Apply filters to the iframe container instead
+      }
+    }
+    
+    // Update Cusdis theme
+    function updateCusdisTheme() {
+      var thread = document.getElementById('cusdis_thread');
+      if (!thread) return;
+      
+      var theme = getCurrentTheme();
+      var currentTheme = thread.getAttribute('data-theme');
+      
+      if (currentTheme !== theme) {
+        thread.setAttribute('data-theme', theme);
+        
+        // Re-inject styles with new theme
+        setTimeout(injectCusdisStyles, 100);
+        
+        // Trigger Cusdis reload if API available
+        if (window.CUSDIS && window.CUSDIS.setTheme) {
+          window.CUSDIS.setTheme(theme);
+        } else if (window.CUSDIS && window.CUSDIS.initial) {
+          setTimeout(function() {
+            window.CUSDIS.initial();
+          }, 100);
+        }
+      }
+    }
+    
+    // Set theme immediately
+    setInitialTheme();
+    
+    // Watch for theme changes
+    var observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.attributeName === 'data-mode') {
+          updateCusdisTheme();
+        }
+      });
+    });
+    
+    observer.observe(document.documentElement, { 
+      attributes: true, 
+      attributeFilter: ['data-mode'] 
+    });
+    
+    // Inject styles after Cusdis loads
+    window.addEventListener('load', function() {
+      setTimeout(injectCusdisStyles, 1500);
+      setTimeout(updateCusdisTheme, 1000);
+    });
+    
+    // Also try after DOMContentLoaded
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(injectCusdisStyles, 1500);
+      });
+    } else {
+      setTimeout(injectCusdisStyles, 1500);
+    }
+  })();
+</script>
+
+<style>
+  .comments-section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color, #e9ecef);
+  }
+  
+  .comments-section h2 {
+    font-size: 1.4rem;
+    color: var(--heading-color, #212529);
+    margin-bottom: 1rem;
+  }
+  
+  /* Container styling */
+  #cusdis_thread {
+    width: 100%;
+    min-height: 200px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Light mode container */
+  [data-mode="light"] #cusdis_thread {
+    border: 1px solid #bbb;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background: #ffffff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  
+  /* Dark mode container */
+  [data-mode="dark"] #cusdis_thread {
+    border: 1px solid #5a5a5d;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background: #1b1b1e;
+    box-shadow: 0 1px 3px rgba(255,255,255,0.05);
+  }
+  
+  #cusdis_thread iframe {
+    width: 100% !important;
+    border: none !important;
+    background: transparent !important;
+  }
+  
+  /* Section styling for dark mode */
+  [data-mode="dark"] .comments-section {
+    border-top-color: #3e3e42;
+  }
+  
+  [data-mode="dark"] .comments-section h2 {
+    color: #e8eaed;
+  }
+  
+  /* Smooth transitions */
+  #cusdis_thread, 
+  #cusdis_thread iframe,
+  .comments-section {
+    transition: all 0.3s ease;
+  }
+</style>
+

@@ -1,0 +1,12 @@
+/* Permanently hide the PWA update notification popup */
+#notification {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  z-index: -9999 !important;
+}
+
+.toast {
+  display: none !important;
+}

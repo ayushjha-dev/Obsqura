@@ -1,6 +1,6 @@
 {
-  "next_day": 22,
-  "last_processed": "Privacy-Preserving Technologies: Homomorphic Encryption",
+  "next_day": 23,
+  "last_processed": "SIEM vs. SOAR: Building an Effective Security Operations Center",
   "used_images": [
     "https://images.unsplash.com/photo-1496368077930-c1e31b4e5b44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTR8&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1519575706483-221027bfbb31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTV8&ixlib=rb-4.1.0&q=80&w=1080",
@@ -22,6 +22,7 @@
     "https://images.unsplash.com/photo-1758522964483-4c92775a83b6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw3fHxhcGklMjBpbmZyYXN0cnVjdHVyZSUyMHNlY3VyaXR5fGVufDB8MHx8fDE3NjkyOTgxODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1660836814985-8523a0d713b5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwyfHxxdWFudHVtJTIwa2V5JTIwbmV0d29ya3xlbnwwfDB8fHwxNzY5Mzg0NjM1fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1600165642369-f609e6a2daa2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw4fHxhZHZlcnNhcnklMjBzdHJhdGVneXxlbnwwfDB8fHwxNzY5NDcxMjMxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "https://images.unsplash.com/photo-1669052700037-db884b37b2d9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw1fHxlbmNyeXB0ZWQlMjBjb21wdXRhdGlvbnxlbnwwfDB8fHwxNzY5NTU3NjA1fDA&ixlib=rb-4.1.0&q=80&w=1080"
+    "https://images.unsplash.com/photo-1669052700037-db884b37b2d9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw1fHxlbmNyeXB0ZWQlMjBjb21wdXRhdGlvbnxlbnwwfDB8fHwxNzY5NTU3NjA1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "https://images.unsplash.com/photo-1621863386309-4d9bb9806524?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwxfHx0aHJlYXQlMjByZXNwb25zZSUyMGNlbnRlcnxlbnwwfDB8fHwxNzY5NjQ0MjIzfDA&ixlib=rb-4.1.0&q=80&w=1080"
   ]
 }

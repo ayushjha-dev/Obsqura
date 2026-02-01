@@ -1,6 +1,6 @@
 {
-  "next_day": 26,
-  "last_processed": "Browser Security: Defending Against Drive-by Downloads",
+  "next_day": 27,
+  "last_processed": "Email Authentication: SPF, DKIM, and DMARC Explained",
   "used_images": [
     "https://images.unsplash.com/photo-1496368077930-c1e31b4e5b44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTR8&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1519575706483-221027bfbb31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTV8&ixlib=rb-4.1.0&q=80&w=1080",
@@ -26,6 +26,7 @@
     "https://images.unsplash.com/photo-1621863386309-4d9bb9806524?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwxfHx0aHJlYXQlMjByZXNwb25zZSUyMGNlbnRlcnxlbnwwfDB8fHwxNzY5NjQ0MjIzfDA&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1580077910645-a6fd54032e15?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw1fHxpbmR1c3RyaWFsJTIwY3liZXIlMjBhdHRhY2t8ZW58MHwwfHx8MTc2OTczMDY1Mnww&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1634907047169-744ea8a8b6fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw3fHxzZWN1cmUlMjBwYXNzd29yZCUyMHZhdWx0fGVufDB8MHx8fDE3Njk4MTcwMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "https://images.unsplash.com/photo-1564876646022-f38fd2c3ae88?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw3fHxjb3ZlcnQlMjBkb3dubG9hZCUyMHRocmVhdHxlbnwwfDB8fHwxNzY5OTAzMjY4fDA&ixlib=rb-4.1.0&q=80&w=1080"
+    "https://images.unsplash.com/photo-1564876646022-f38fd2c3ae88?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw3fHxjb3ZlcnQlMjBkb3dubG9hZCUyMHRocmVhdHxlbnwwfDB8fHwxNzY5OTAzMjY4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "https://images.unsplash.com/photo-1720288954220-bba3be2d1d6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwzfHxlbWFpbCUyMHZlcmlmaWNhdGlvbnxlbnwwfDB8fHwxNzY5OTg5ODA2fDA&ixlib=rb-4.1.0&q=80&w=1080"
   ]
 }

@@ -1,4 +1,3 @@
-```yaml
 ---
 title: "Beyond the Basics: Machine Learning WAFs vs. the Evolving OWASP Top 10"
 date: 2026-02-08 05:26:54 +0530
@@ -53,14 +52,14 @@ Here's how ML WAFs transform defense:
 
 Let's look at a quick comparison:
 
-| Feature                   | Traditional WAF                          | Machine Learning WAF                           |
-| :------------------------ | :--------------------------------------- | :--------------------------------------------- |
-| **Detection Method**      | Signature-based, Regex                   | Behavioral analysis, Anomaly detection, Pattern recognition |
-| **Adaptability**          | Low (requires manual updates)            | High (self-learning, self-tuning)              |
-| **Zero-Day Protection**   | Limited (only after signature release)   | High (detects anomalous exploit attempts)      |
-| **Bot Mitigation**        | Basic (IP blocking, rate limiting)       | Advanced (behavioral analysis, bot fingerprinting) |
-| **False Positives/Negatives** | Moderate to High (due to static rules) | Low (learns context, reduces noise)            |
-| **Management Effort**     | High (constant rule tuning)              | Moderate (initial training, continuous monitoring) |
+| Feature                       | Traditional WAF                        | Machine Learning WAF                                        |
+| :---------------------------- | :------------------------------------- | :---------------------------------------------------------- |
+| **Detection Method**          | Signature-based, Regex                 | Behavioral analysis, Anomaly detection, Pattern recognition |
+| **Adaptability**              | Low (requires manual updates)          | High (self-learning, self-tuning)                           |
+| **Zero-Day Protection**       | Limited (only after signature release) | High (detects anomalous exploit attempts)                   |
+| **Bot Mitigation**            | Basic (IP blocking, rate limiting)     | Advanced (behavioral analysis, bot fingerprinting)          |
+| **False Positives/Negatives** | Moderate to High (due to static rules) | Low (learns context, reduces noise)                         |
+| **Management Effort**         | High (constant rule tuning)            | Moderate (initial training, continuous monitoring)          |
 
 ---
 

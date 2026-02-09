@@ -197,13 +197,20 @@ def validate_and_clean_content(content):
     """Remove broken internal blog links, markdown code block wrappers, and fix YAML formatting."""
     import re
     
-    # Step 1: Remove markdown code block wrappers (```markdown ... ``` or ```md ... ```)
+    # Step 1: Remove markdown code block wrappers (```markdown ... ``` or ```md ... ``` or ```yaml)
     # This handles cases where Gemini wraps the entire response in code blocks
-    code_block_pattern = r'^```(?:markdown|md)?\s*\n(.*?)\n```\s*$'
+    code_block_pattern = r'^```(?:markdown|md|yaml)?\s*\n(.*?)\n```\s*$'
     match = re.match(code_block_pattern, content.strip(), re.DOTALL)
     if match:
         content = match.group(1)
         print(f"  ✓ Removed markdown code block wrapper")
+    
+    # Step 1.5: Also check if just the YAML front matter is wrapped
+    yaml_wrapper_pattern = r'^```yaml\s*\n(---.*?---)\s*\n```'
+    if re.match(yaml_wrapper_pattern, content.strip(), re.DOTALL):
+        content = re.sub(r'^```yaml\s*\n', '', content.strip(), count=1)
+        content = re.sub(r'\n```', '', content, count=1)
+        print(f"  ✓ Removed ```yaml wrapper from front matter")
     
     # Step 2: Fix YAML front matter formatting issues
     # Extract the YAML front matter
@@ -355,7 +362,7 @@ def compress_image(img, max_size_kb=500):
     return Image.open(buffer), img_format
 
 def get_unsplash_image(topic, used_images=None):
-    """Fetch image from Unsplash with deduplication."""
+    """Fetch image from Unsplash with deduplication and fallback searches."""
     # Check if Unsplash API key is available
     if not UNSPLASH_ACCESS_KEY:
         print(f"  ⚠️  Unsplash API key not configured, skipping...")
@@ -364,79 +371,90 @@ def get_unsplash_image(topic, used_images=None):
     if used_images is None:
         used_images = []
     
+    # Define fallback search terms for when the main search fails
+    fallback_terms = [
+        "cybersecurity technology",
+        "computer security",
+        "network security",
+        "digital security",
+        "data protection",
+        "cyber technology",
+        "information security",
+        "encryption technology",
+        "security system",
+        "technology abstract"
+    ]
+    
+    def try_search(query):
+        """Try a single search query and return available photos."""
+        try:
+            response = requests.get(
+                "https://api.unsplash.com/search/photos",
+                params={
+                    "query": query,
+                    "per_page": 10,
+                    "orientation": "landscape",
+                    "client_id": UNSPLASH_ACCESS_KEY
+                },
+                timeout=10
+            )
+            
+            if response.status_code == 200:
+                data = response.json()
+                if data.get('results'):
+                    # Filter out already used images
+                    available_photos = [
+                        photo for photo in data['results']
+                        if photo['urls']['regular'] not in used_images
+                    ]
+                    return available_photos
+        except Exception as e:
+            print(f"    ⚠️  Search error: {e}")
+        return []
+    
     try:
         # Generate AI-powered search query (now returns 2-3 words)
         print(f"  🤖 Generating specific search query with AI...")
         search_query = generate_image_search_query(topic)
         print(f"  📸 Searching Unsplash for: '{search_query}'")
         
-        # Fetch 10 images instead of just 1
-        response = requests.get(
-            "https://api.unsplash.com/search/photos",
-            params={
-                "query": search_query,
-                "per_page": 10,  # Get 10 results for variety
-                "orientation": "landscape",
-                "client_id": UNSPLASH_ACCESS_KEY
-            },
-            timeout=10
-        )
+        # Try the main query
+        available_photos = try_search(search_query)
         
-        if response.status_code == 200:
-            data = response.json()
-            if data.get('results'):
-                # Filter out already used images
-                available_photos = [
-                    photo for photo in data['results']
-                    if photo['urls']['regular'] not in used_images
-                ]
-                
-                if not available_photos:
-                    print(f"  ⚠️  All images from this search have been used before")
-                    # Try a broader fallback search
-                    fallback_query = search_query.split()[0]  # Use first word only
-                    print(f"  🔄 Trying fallback search: '{fallback_query}'")
-                    response = requests.get(
-                        "https://api.unsplash.com/search/photos",
-                        params={
-                            "query": fallback_query,
-                            "per_page": 10,
-                            "orientation": "landscape",
-                            "client_id": UNSPLASH_ACCESS_KEY
-                        },
-                        timeout=10
-                    )
-                    if response.status_code == 200:
-                        data = response.json()
-                        available_photos = [
-                            photo for photo in data.get('results', [])
-                            if photo['urls']['regular'] not in used_images
-                        ]
-                
+        # If no photos found, try fallback terms one by one
+        if not available_photos:
+            print(f"  ⚠️  No unused images found, trying fallback searches...")
+            for fallback_term in fallback_terms:
+                print(f"  🔄 Trying: '{fallback_term}'")
+                available_photos = try_search(fallback_term)
                 if available_photos:
-                    # Randomly select one of the available images
-                    photo = random.choice(available_photos)
-                    image_url = photo['urls']['regular']
-                    photographer = photo['user']['name']
-                    
-                    print(f"  ✅ Selected image by {photographer} (from {len(available_photos)} options)")
-                    
-                    # Download image
-                    img_response = requests.get(image_url, timeout=15)
-                    if img_response.status_code == 200:
-                        img = Image.open(BytesIO(img_response.content))
-                        original_size = len(img_response.content) / 1024
-                        print(f"  ✅ Downloaded image ({img.size[0]}x{img.size[1]}px, {original_size:.1f}KB)")
-                        
-                        # Compress if larger than 500KB
-                        if original_size > 500:
-                            print(f"  🗜️  Compressing image (original: {original_size:.1f}KB)...")
-                            img, _ = compress_image(img, max_size_kb=500)
-                        
-                        # Return image, photographer, and URL for tracking
-                        return img, photographer, image_url
+                    print(f"  ✅ Found {len(available_photos)} unused images with fallback term!")
+                    break
         
-        print(f"  ⚠️  No suitable images found on Unsplash")
+        if available_photos:
+            # Randomly select one of the available images
+            photo = random.choice(available_photos)
+            image_url = photo['urls']['regular']
+            photographer = photo['user']['name']
+            
+            print(f"  ✅ Selected image by {photographer} (from {len(available_photos)} options)")
+            
+            # Download image
+            img_response = requests.get(image_url, timeout=15)
+            if img_response.status_code == 200:
+                img = Image.open(BytesIO(img_response.content))
+                original_size = len(img_response.content) / 1024
+                print(f"  ✅ Downloaded image ({img.size[0]}x{img.size[1]}px, {original_size:.1f}KB)")
+                
+                # Compress if larger than 500KB
+                if original_size > 500:
+                    print(f"  🗜️  Compressing image (original: {original_size:.1f}KB)...")
+                    img, _ = compress_image(img, max_size_kb=500)
+                
+                # Return image, photographer, and URL for tracking
+                return img, photographer, image_url
+        
+        print(f"  ⚠️  No suitable images found even with fallback searches")
         return None, None, None
         
     except Exception as e:
@@ -460,16 +478,11 @@ def generate_and_save_image(topic, day):
         except Exception as e:
             print(f"  ⚠️  Could not load used images: {e}")
     
-    # Check if Unsplash API key is available
+    # Check if Unsplash API key is available - fail fast if not
     if not UNSPLASH_ACCESS_KEY:
-        print(f"  ⚠️  Unsplash API key not configured!")
-        print(f"  Creating placeholder image...")
-        placeholder_png = b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01\x00\x00\x00\x01\x08\x06\x00\x00\x00\x1f\x15\xc4\x89\x00\x00\x00\nIDATx\x9cc\x00\x01\x00\x00\x05\x00\x01\r\n-\xb4\x00\x00\x00\x00IEND\xaeB`\x82'
-        with open(img_path, 'wb') as f:
-            f.write(placeholder_png)
-        return img_path, None
+        raise Exception("Unsplash API key not configured! Cannot generate images. Set UNSPLASH_ACCESS_KEY environment variable.")
     
-    # Get image from Unsplash (with deduplication)
+    # Get image from Unsplash (with deduplication and fallback searches)
     try:
         img, photographer, image_url = get_unsplash_image(topic, used_images)
         if img:
@@ -482,14 +495,11 @@ def generate_and_save_image(topic, day):
             print(f"  ✅ Saved unique image by {photographer} ({final_size:.1f}KB)")
             return img_path, image_url
         else:
-            raise Exception("No suitable images found on Unsplash")
+            raise Exception("No suitable images found on Unsplash even with fallback searches")
     except Exception as e:
-        print(f"  ⚠️  Unsplash failed: {e}")
-        print(f"  Creating placeholder image...")
-        placeholder_png = b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01\x00\x00\x00\x01\x08\x06\x00\x00\x00\x1f\x15\xc4\x89\x00\x00\x00\nIDATx\x9cc\x00\x01\x00\x00\x05\x00\x01\r\n-\xb4\x00\x00\x00\x00IEND\xaeB`\x82'
-        with open(img_path, 'wb') as f:
-            f.write(placeholder_png)
-        return img_path, None
+        print(f"  ❌ Fatal: Could not fetch any image from Unsplash: {e}")
+        print(f"  ⚠️  Stopping execution - image is required for post")
+        raise Exception(f"Failed to fetch hero image: {e}")
 
 def upload_to_github(md_filename, md_content, img_path, status_data=None):
     """Upload markdown post, image, and status.json to GitHub repository."""
@@ -649,4 +659,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

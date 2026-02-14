@@ -1,6 +1,6 @@
 {
-  "next_day": 40,
-  "last_processed": "Secure Boot and Trusted Platform Module: Hardware Root of Trust",
+  "next_day": 41,
+  "last_processed": "Bug Bounty Programs: Crowdsourced Vulnerability Discovery",
   "used_images": [
     "https://images.unsplash.com/photo-1496368077930-c1e31b4e5b44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTR8&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1519575706483-221027bfbb31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTV8&ixlib=rb-4.1.0&q=80&w=1080",
@@ -39,6 +39,7 @@
     "https://images.unsplash.com/photo-1664445063522-3054fd1d13a9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw3fHxkYXRhJTIwYmFycmllcnxlbnwwfDB8fHwxNzcwNzY4MjA2fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1586448681733-b5633c615985?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwxfHxkYXRhJTIwcG9pc29uaW5nfGVufDB8MHx8fDE3NzA4NTQwNjJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1760199789455-49098afd02f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwyfHxjeWJlcnNlY3VyaXR5JTIwdGVjaG5vbG9neXxlbnwwfDB8fHwxNzcwOTQwNTA1fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "https://images.unsplash.com/photo-1762329404225-2953941c00f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw2fHxoYXJkd2FyZSUyMHJvb3QlMjBjaGlwfGVufDB8MHx8fDE3NzEwMjY4ODh8MA&ixlib=rb-4.1.0&q=80&w=1080"
+    "https://images.unsplash.com/photo-1762329404225-2953941c00f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw2fHxoYXJkd2FyZSUyMHJvb3QlMjBjaGlwfGVufDB8MHx8fDE3NzEwMjY4ODh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "https://images.unsplash.com/photo-1637217423185-7fa872a02028?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw5fHxidWclMjBodW50JTIwdnVsbmVyYWJpbGl0eXxlbnwwfDB8fHwxNzcxMTEyOTg5fDA&ixlib=rb-4.1.0&q=80&w=1080"
   ]
 }

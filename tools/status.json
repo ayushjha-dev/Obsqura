@@ -1,6 +1,6 @@
 {
-  "next_day": 43,
-  "last_processed": "Digital Forensics: The Art of Incident Investigation",
+  "next_day": 44,
+  "last_processed": "Wireless Security: Beyond WPA3",
   "used_images": [
     "https://images.unsplash.com/photo-1496368077930-c1e31b4e5b44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTR8&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1519575706483-221027bfbb31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTV8&ixlib=rb-4.1.0&q=80&w=1080",
@@ -42,6 +42,7 @@
     "https://images.unsplash.com/photo-1762329404225-2953941c00f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw2fHxoYXJkd2FyZSUyMHJvb3QlMjBjaGlwfGVufDB8MHx8fDE3NzEwMjY4ODh8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1637217423185-7fa872a02028?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw5fHxidWclMjBodW50JTIwdnVsbmVyYWJpbGl0eXxlbnwwfDB8fHwxNzcxMTEyOTg5fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1645318506272-9bb6cb3d0702?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw1fHxkdXBsaWNhdGUlMjBwYXNzd29yZCUyMHdlYWt8ZW58MHwwfHx8MTc3MTQyNjAyNXww&ixlib=rb-4.1.0&q=80&w=1080",
-    "https://images.unsplash.com/photo-1718963581729-673ed905416a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwzfHxmb3JlbnNpYyUyMGludmVzdGlnYXRpb258ZW58MHwwfHx8MTc3MTQ1ODkwNXww&ixlib=rb-4.1.0&q=80&w=1080"
+    "https://images.unsplash.com/photo-1718963581729-673ed905416a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwzfHxmb3JlbnNpYyUyMGludmVzdGlnYXRpb258ZW58MHwwfHx8MTc3MTQ1ODkwNXww&ixlib=rb-4.1.0&q=80&w=1080",
+    "https://images.unsplash.com/photo-1664146158348-6a8c71ac62d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw0fHx3aXJlbGVzcyUyMG5ldHdvcmslMjBlbmNyeXB0aW9ufGVufDB8MHx8fDE3NzE1NDUzMDh8MA&ixlib=rb-4.1.0&q=80&w=1080"
   ]
 }

@@ -1,6 +1,6 @@
 {
-  "next_day": 53,
-  "last_processed": "Threat Modeling: Proactive Security by Design",
+  "next_day": 54,
+  "last_processed": "Data Loss Prevention: Stopping Sensitive Data Exfiltration",
   "used_images": [
     "https://images.unsplash.com/photo-1496368077930-c1e31b4e5b44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTR8&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1519575706483-221027bfbb31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTV8&ixlib=rb-4.1.0&q=80&w=1080",
@@ -52,6 +52,7 @@
     "https://images.unsplash.com/photo-1765256931845-56da0f7db9cb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw3fHxtaWNyb2NoaXAlMjBzZWN1cml0eXxlbnwwfDB8fHwxNzczMjczMDY3fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1584461800203-e8b0a2fd55ca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw1fHxhdXRvbWF0ZWQlMjB0aHJlYXQlMjByZXNwb25zZXxlbnwwfDB8fHwxNzczMzU5NDg0fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1719817251147-9605c9ce315a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw4fHxjeWJlciUyMGtpbGwlMjBjaGFpbnxlbnwwfDB8fHwxNzczNDQ2MDExfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "https://images.unsplash.com/photo-1630241772217-5d4926c594cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwxMHx8cHJvYWN0aXZlJTIwc2VjdXJpdHklMjBkZXNpZ258ZW58MHwwfHx8MTc3MzUzMjMxMHww&ixlib=rb-4.1.0&q=80&w=1080"
+    "https://images.unsplash.com/photo-1630241772217-5d4926c594cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwxMHx8cHJvYWN0aXZlJTIwc2VjdXJpdHklMjBkZXNpZ258ZW58MHwwfHx8MTc3MzUzMjMxMHww&ixlib=rb-4.1.0&q=80&w=1080",
+    "https://images.unsplash.com/photo-1584968328641-22b760ec0d1e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwxfHxzZW5zaXRpdmUlMjBkYXRhJTIwbGVha3xlbnwwfDB8fHwxNzczNjE4ODQ2fDA&ixlib=rb-4.1.0&q=80&w=1080"
   ]
 }

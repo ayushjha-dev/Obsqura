@@ -1,6 +1,6 @@
 {
-  "next_day": 68,
-  "last_processed": "Secure File Transfer: Beyond FTP",
+  "next_day": 69,
+  "last_processed": "Active Directory Security: Hardening Enterprise Identity",
   "used_images": [
     "https://images.unsplash.com/photo-1496368077930-c1e31b4e5b44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTR8&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1519575706483-221027bfbb31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTV8&ixlib=rb-4.1.0&q=80&w=1080",
@@ -67,6 +67,7 @@
     "https://images.unsplash.com/photo-1663932210347-164a05ed0ccd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw5fHxpbmR1c3RyaWFsJTIwbmV0d29yayUyMHByb3RlY3Rpb258ZW58MHwwfHx8MTc3NDU2OTQ5M3ww&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1695649557876-cf3cf0458746?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwxfHxjeWJlciUyMHJlc2lsaWVuY2UlMjByZWJ1aWxkfGVufDB8MHx8fDE3NzQ2NTU2NDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1620674156044-52b714665d46?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw2fHxkaWdpdGFsJTIwZm9yZW5zaWN8ZW58MHwwfHx8MTc3NDc0MjE3M3ww&ixlib=rb-4.1.0&q=80&w=1080",
-    "https://images.unsplash.com/photo-1660836814985-8523a0d713b5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw3fHxzZWN1cmUlMjBkYXRhJTIwbmV0d29ya3xlbnwwfDB8fHwxNzc0ODI4NjQxfDA&ixlib=rb-4.1.0&q=80&w=1080"
+    "https://images.unsplash.com/photo-1660836814985-8523a0d713b5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw3fHxzZWN1cmUlMjBkYXRhJTIwbmV0d29ya3xlbnwwfDB8fHwxNzc0ODI4NjQxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "https://images.unsplash.com/photo-1722684766692-86e20d6ff1b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw1fHxlbnRlcnByaXNlJTIwaWRlbnRpdHklMjBsb2NrfGVufDB8MHx8fDE3NzQ5MTUyNDV8MA&ixlib=rb-4.1.0&q=80&w=1080"
   ]
 }

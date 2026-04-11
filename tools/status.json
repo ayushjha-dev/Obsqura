@@ -1,6 +1,6 @@
 {
-  "next_day": 78,
-  "last_processed": "Spear Phishing: Targeted Deception at Scale",
+  "next_day": 79,
+  "last_processed": "Command and Control Infrastructure: How Malware Phones Home",
   "used_images": [
     "https://images.unsplash.com/photo-1496368077930-c1e31b4e5b44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTR8&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1519575706483-221027bfbb31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTV8&ixlib=rb-4.1.0&q=80&w=1080",
@@ -77,6 +77,7 @@
     "https://images.unsplash.com/photo-1708807472445-d33589e6b090?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw1fHxjeWJlciUyMHRocmVhdCUyMG1vbml0b3Jpbmd8ZW58MHwwfHx8MTc3NTQzMzU2NHww&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1761519609249-c0ca325f81db?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw1fHxuZXR3b3JrJTIwZGF0YSUyMHRocmVhdHxlbnwwfDB8fHwxNzc1NTIwMDI5fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1771931322109-180bb1b35bf8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwzfHxleGVjdXRpdmUlMjBjeWJlciUyMHJpc2t8ZW58MHwwfHx8MTc3NTYwNjY0M3ww&ixlib=rb-4.1.0&q=80&w=1080",
-    "https://images.unsplash.com/photo-1585547065687-075e6b6bbd46?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw4fHx0YXJnZXRlZCUyMGJhaXR8ZW58MHwwfHx8MTc3NTg2NTY0Mnww&ixlib=rb-4.1.0&q=80&w=1080"
+    "https://images.unsplash.com/photo-1585547065687-075e6b6bbd46?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw4fHx0YXJnZXRlZCUyMGJhaXR8ZW58MHwwfHx8MTc3NTg2NTY0Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+    "https://images.unsplash.com/photo-1757038490040-3ab2a01b1f55?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwxfHxtYWx3YXJlJTIwcmVtb3RlJTIwY29udHJvbHxlbnwwfDB8fHwxNzc1OTUxOTc5fDA&ixlib=rb-4.1.0&q=80&w=1080"
   ]
 }

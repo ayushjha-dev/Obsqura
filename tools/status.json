@@ -1,6 +1,6 @@
 {
-  "next_day": 81,
-  "last_processed": "Cybersecurity Frameworks: NIST CSF, ISO 27001, and CIS Controls",
+  "next_day": 82,
+  "last_processed": "Data Encryption at Rest: Protecting Stored Information",
   "used_images": [
     "https://images.unsplash.com/photo-1496368077930-c1e31b4e5b44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTR8&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1519575706483-221027bfbb31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTV8&ixlib=rb-4.1.0&q=80&w=1080",
@@ -80,6 +80,7 @@
     "https://images.unsplash.com/photo-1585547065687-075e6b6bbd46?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw4fHx0YXJnZXRlZCUyMGJhaXR8ZW58MHwwfHx8MTc3NTg2NTY0Mnww&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1757038490040-3ab2a01b1f55?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwxfHxtYWx3YXJlJTIwcmVtb3RlJTIwY29udHJvbHxlbnwwfDB8fHwxNzc1OTUxOTc5fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1599949104055-2d04026aee1e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwzfHxjeWJlcnNlY3VyaXR5JTIwdGVjaG5vbG9neXxlbnwwfDB8fHwxNzc2MDM4NTIyfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "https://images.unsplash.com/photo-1720962158924-6b1d12429ffd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwyfHxjeWJlcnNlY3VyaXR5JTIwYmx1ZXByaW50fGVufDB8MHx8fDE3NzYxMjUzMDJ8MA&ixlib=rb-4.1.0&q=80&w=1080"
+    "https://images.unsplash.com/photo-1720962158924-6b1d12429ffd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwyfHxjeWJlcnNlY3VyaXR5JTIwYmx1ZXByaW50fGVufDB8MHx8fDE3NzYxMjUzMDJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "https://images.unsplash.com/photo-1710981855156-1dd4b48e668d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwxfHxlbmNyeXB0ZWQlMjB2YXVsdHxlbnwwfDB8fHwxNzc2MjExNjc1fDA&ixlib=rb-4.1.0&q=80&w=1080"
   ]
 }

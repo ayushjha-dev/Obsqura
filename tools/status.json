@@ -1,6 +1,6 @@
 {
-  "next_day": 96,
-  "last_processed": "Cybersecurity Incident Response Plans: Building Your Playbook",
+  "next_day": 97,
+  "last_processed": "Browser Isolation: Containing Web-Based Threats",
   "used_images": [
     "https://images.unsplash.com/photo-1496368077930-c1e31b4e5b44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTR8&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1519575706483-221027bfbb31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTV8&ixlib=rb-4.1.0&q=80&w=1080",
@@ -95,6 +95,7 @@
     "https://images.unsplash.com/photo-1771602849639-a4a1a16b972d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw4fHxjeWJlcnNlY3VyaXR5JTIwdGVjaG5vbG9neXxlbnwwfDB8fHwxNzc3MTYxODc1fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1618060931775-18ed14951776?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw0fHxlbmNyeXB0aW9uJTIwa2V5JTIwdnVsbmVyYWJpbGl0eXxlbnwwfDB8fHwxNzc3MzM1MTc5fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1740908900906-a51032597559?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw2fHx2ZW5kb3IlMjBzZWN1cml0eSUyMGF1ZGl0fGVufDB8MHx8fDE3Nzc0MjU0Mjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw4fHxjeWJlciUyMGluY2lkZW50JTIwcGxheWJvb2t8ZW58MHwwfHx8MTc3NzU5ODQ5NHww&ixlib=rb-4.1.0&q=80&w=1080"
+    "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw4fHxjeWJlciUyMGluY2lkZW50JTIwcGxheWJvb2t8ZW58MHwwfHx8MTc3NzU5ODQ5NHww&ixlib=rb-4.1.0&q=80&w=1080",
+    "https://images.unsplash.com/photo-1720624227405-cd8db52cda9d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw1fHxicm93c2VyJTIwYnViYmxlfGVufDB8MHx8fDE3Nzc2ODQzMDF8MA&ixlib=rb-4.1.0&q=80&w=1080"
   ]
 }

@@ -1,6 +1,6 @@
 {
-  "next_day": 106,
-  "last_processed": "Secure Software Bill of Materials: Knowing What's in Your Code",
+  "next_day": 107,
+  "last_processed": "Memory Safety: The Root Cause of Buffer Overflows",
   "used_images": [
     "https://images.unsplash.com/photo-1496368077930-c1e31b4e5b44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTR8&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1519575706483-221027bfbb31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTV8&ixlib=rb-4.1.0&q=80&w=1080",
@@ -105,6 +105,7 @@
     "https://images.unsplash.com/photo-1584291527908-033f4d6542c8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw4fHxkYXRhJTIwaHlnaWVuZXxlbnwwfDB8fHwxNzc4MjAzMDUyfDA&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1639081294740-fadaa055fcff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw4fHxleHBvc2VkJTIwYXR0YWNrJTIwc3VyZmFjZXxlbnwwfDB8fHwxNzc4Mjg5Mzc5fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1659079631665-eb95370fb173?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw2fHxjbG91ZCUyMHNlY3VyaXR5JTIwcm9ib3R8ZW58MHwwfHx8MTc3ODM3MTk1OHww&ixlib=rb-4.1.0&q=80&w=1080",
-    "https://images.unsplash.com/photo-1604403428907-673e7f4cd341?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw4fHxjb2RlJTIwYmx1ZXByaW50fGVufDB8MHx8fDE3Nzg0NjI1ODd8MA&ixlib=rb-4.1.0&q=80&w=1080"
+    "https://images.unsplash.com/photo-1604403428907-673e7f4cd341?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw4fHxjb2RlJTIwYmx1ZXByaW50fGVufDB8MHx8fDE3Nzg0NjI1ODd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "https://images.unsplash.com/photo-1768913652759-655a01d91674?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw5fHxidWZmZXIlMjBzcGlsbHxlbnwwfDB8fHwxNzc4NTQ4NjE0fDA&ixlib=rb-4.1.0&q=80&w=1080"
   ]
 }

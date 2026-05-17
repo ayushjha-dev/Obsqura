@@ -1,6 +1,6 @@
 {
-  "next_day": 111,
-  "last_processed": "Synthetic Identity Fraud: When Fake People Steal Real Money",
+  "next_day": 112,
+  "last_processed": "Cloud Access Security Broker: Visibility into SaaS Usage",
   "used_images": [
     "https://images.unsplash.com/photo-1496368077930-c1e31b4e5b44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTR8&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1519575706483-221027bfbb31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTV8&ixlib=rb-4.1.0&q=80&w=1080",
@@ -110,6 +110,7 @@
     "https://images.unsplash.com/photo-1586449480584-34302e933441?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwxMHx8YWR2ZXJzYXJ5JTIwYXR0YWNrJTIwbWFwfGVufDB8MHx8fDE3Nzg2MzU0NDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1639503547276-90230c4a4198?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw1fHxjYW1wdXMlMjBkaWdpdGFsJTIwc2VjdXJpdHl8ZW58MHwwfHx8MTc3ODcyMjAxMHww&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBjeWJlciUyMHNlY3VyaXR5fGVufDB8MHx8fDE3Nzg4MDgxMDd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "https://images.unsplash.com/photo-1636568684405-9665d408284a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw2fHxhcnRpZmljaWFsJTIwcGVyc29ufGVufDB8MHx8fDE3Nzg4OTQxNzd8MA&ixlib=rb-4.1.0&q=80&w=1080"
+    "https://images.unsplash.com/photo-1636568684405-9665d408284a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw2fHxhcnRpZmljaWFsJTIwcGVyc29ufGVufDB8MHx8fDE3Nzg4OTQxNzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "https://images.unsplash.com/photo-1667984390527-850f63192709?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw5fHxjbG91ZCUyMHVzYWdlJTIwbW9uaXRvcmluZ3xlbnwwfDB8fHwxNzc4OTgxMDcxfDA&ixlib=rb-4.1.0&q=80&w=1080"
   ]
 }

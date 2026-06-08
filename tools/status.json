@@ -1,6 +1,6 @@
 {
-  "next_day": 133,
-  "last_processed": "Cybersecurity for Nonprofits: Protecting Mission-Driven Organizations",
+  "next_day": 134,
+  "last_processed": "Fuzzing: Breaking Software Through Random Input",
   "used_images": [
     "https://images.unsplash.com/photo-1496368077930-c1e31b4e5b44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTR8&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1519575706483-221027bfbb31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTV8&ixlib=rb-4.1.0&q=80&w=1080",
@@ -132,6 +132,7 @@
     "https://images.unsplash.com/photo-1629697776275-725482b486f7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw4fHxwaG9uZSUyMHNjYW18ZW58MHwwfHx8MTc4MDYyMzQ2Nnww&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1771931278406-e3deaf47d786?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwyfHxkYXJrJTIwcGF0dGVybiUyMGludGVyZmFjZXxlbnwwfDB8fHwxNzgwNzA5MzgzfDA&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1618060932014-4deda4932554?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw0fHxjeWJlcnNlY3VyaXR5JTIwdGVjaG5vbG9neXxlbnwwfDB8fHwxNzgwODM1MjM5fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "https://images.unsplash.com/photo-1762330463346-5c71fbfee5d6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwxfHxjeWJlcnNlY3VyaXR5JTIwZm9yJTIwbm9ucHJvZml0c3xlbnwwfDB8fHwxNzgwODM1NDI0fDA&ixlib=rb-4.1.0&q=80&w=1080"
+    "https://images.unsplash.com/photo-1762330463346-5c71fbfee5d6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwxfHxjeWJlcnNlY3VyaXR5JTIwZm9yJTIwbm9ucHJvZml0c3xlbnwwfDB8fHwxNzgwODM1NDI0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "https://images.unsplash.com/photo-1666071083408-a7acb1a87e5f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw4fHxjb3JydXB0ZWQlMjBjb2RlfGVufDB8MHx8fDE3ODA4ODI4NzJ8MA&ixlib=rb-4.1.0&q=80&w=1080"
   ]
 }

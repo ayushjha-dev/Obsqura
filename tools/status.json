@@ -1,6 +1,6 @@
 {
-  "next_day": 147,
-  "last_processed": "Satellite Cybersecurity: Hacking Objects in Orbit",
+  "next_day": 148,
+  "last_processed": "Exploit Development: Understanding How Vulnerabilities Become Weapons",
   "used_images": [
     "https://images.unsplash.com/photo-1496368077930-c1e31b4e5b44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTR8&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1519575706483-221027bfbb31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTV8&ixlib=rb-4.1.0&q=80&w=1080",
@@ -146,6 +146,7 @@
     "https://images.unsplash.com/photo-1618060932014-4deda4932554?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwzfHx0aW1lc3RhbXAlMjBlbmNyeXB0aW9ufGVufDB8MHx8fDE3ODE4MzU1MzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1538585935040-2955aff6ffc9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwxMHx8ZnJhdWR1bGVudCUyMG9wcG9ydHVuaXR5fGVufDB8MHx8fDE3ODE5MTkzNzB8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1770233621425-5d9ee7a0a700?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw3fHxhaSUyMGJpYXN8ZW58MHwwfHx8MTc4MjAwNzE1N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-    "https://images.unsplash.com/photo-1614064548237-096f735f344f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwyfHxvcmJpdGFsJTIwY3liZXJhdHRhY2t8ZW58MHwwfHx8MTc4MjA5MzgxOHww&ixlib=rb-4.1.0&q=80&w=1080"
+    "https://images.unsplash.com/photo-1614064548237-096f735f344f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwyfHxvcmJpdGFsJTIwY3liZXJhdHRhY2t8ZW58MHwwfHx8MTc4MjA5MzgxOHww&ixlib=rb-4.1.0&q=80&w=1080",
+    "https://images.unsplash.com/photo-1619410283995-43d9134e7656?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw2fHxleHBsb2l0JTIwZGV2ZWxvcG1lbnR8ZW58MHwwfHx8MTc4MjE3ODMwMXww&ixlib=rb-4.1.0&q=80&w=1080"
   ]
 }

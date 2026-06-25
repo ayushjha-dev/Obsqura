@@ -1,6 +1,6 @@
 {
-  "next_day": 149,
-  "last_processed": "Data Breach Notification Laws: What You Must Disclose and When",
+  "next_day": 150,
+  "last_processed": "Reverse Proxy Security: Protecting Backend Services",
   "used_images": [
     "https://images.unsplash.com/photo-1496368077930-c1e31b4e5b44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTR8&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1519575706483-221027bfbb31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTV8&ixlib=rb-4.1.0&q=80&w=1080",
@@ -148,6 +148,7 @@
     "https://images.unsplash.com/photo-1770233621425-5d9ee7a0a700?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw3fHxhaSUyMGJpYXN8ZW58MHwwfHx8MTc4MjAwNzE1N3ww&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1614064548237-096f735f344f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwyfHxvcmJpdGFsJTIwY3liZXJhdHRhY2t8ZW58MHwwfHx8MTc4MjA5MzgxOHww&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1619410283995-43d9134e7656?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw2fHxleHBsb2l0JTIwZGV2ZWxvcG1lbnR8ZW58MHwwfHx8MTc4MjE3ODMwMXww&ixlib=rb-4.1.0&q=80&w=1080",
-    "https://images.unsplash.com/photo-1615985250204-b48c0936d4fc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw0fHxkYXRhJTIwYnJlYWNoJTIwbm90aWZpY2F0aW9ufGVufDB8MHx8fDE3ODIyNjQzOTJ8MA&ixlib=rb-4.1.0&q=80&w=1080"
+    "https://images.unsplash.com/photo-1615985250204-b48c0936d4fc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw0fHxkYXRhJTIwYnJlYWNoJTIwbm90aWZpY2F0aW9ufGVufDB8MHx8fDE3ODIyNjQzOTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "https://images.unsplash.com/photo-1609666964634-4f39e1706fe4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwxfHxnYXRld2F5JTIwc2hpZWxkfGVufDB8MHx8fDE3ODIzNTExMzJ8MA&ixlib=rb-4.1.0&q=80&w=1080"
   ]
 }

@@ -7,7 +7,7 @@ tags: [Cyber Liability, D&O, Cybersecurity Governance, Board Responsibilities, D
 image:
   path: /assets/img/posts/day-76/1-hero-banner.png
   alt: Board members reviewing cybersecurity reports and risk matrices on a tablet
-description: Explore D&O cyber liability: Understand legal obligations, governance frameworks, and best practices for executives to mitigate cyber risks and ensure compliance in today's evolving threat landscape.
+description: "Explore D&O cyber liability: Understand legal obligations, governance frameworks, and best practices for executives to mitigate cyber risks and ensure compliance in today's evolving threat landscape."
 ---
 ## Introduction
 

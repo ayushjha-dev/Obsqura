@@ -27,6 +27,7 @@ UNSPLASH_ACCESS_KEY = os.getenv("UNSPLASH_ACCESS_KEY")
 REPO_NAME = "ayushjha-dev/Obsqura"
 TOPICS_FILE = "topics.txt"
 STATUS_FILE = "tools/status.json"
+GEMINI_MODEL = "gemini-2.5-flash-lite"
 
 # Validate required environment variables
 if not GEMINI_API_KEY:
@@ -65,10 +66,10 @@ def get_next_topic():
     if not os.path.exists(TOPICS_FILE):
         return None, None, None
 
-    with open(TOPICS_FILE, 'r') as f:
+    with open(TOPICS_FILE, 'r', encoding='utf-8') as f:
         content = f.read()
     
-    pattern = rf"Day {current_day}\nTopic: (.*?)\n(?:Additional Details: (.*?)\n)?"
+    pattern = rf"Day {current_day}\s*\r?\nTopic:\s*(.*?)(?:\r?\nAdditional Details:\s*(.*?))?(?=(?:\r?\n\s*Day \d+|$))"
     match = re.search(pattern, content, re.DOTALL)
     
     if match:
@@ -178,7 +179,7 @@ def generate_blog_content(topic, details, day):
     for attempt in range(max_retries):
         try:
             response = client.models.generate_content(
-                model='gemini-2.5-flash',
+                model=GEMINI_MODEL,
                 contents=prompt
             )
             return response.text
@@ -305,7 +306,7 @@ def generate_image_search_query(topic):
     
     try:
         response = client.models.generate_content(
-            model='gemini-2.5-flash',
+            model=GEMINI_MODEL,
             contents=prompt
         )
         search_query = response.text.strip().lower()
@@ -461,8 +462,23 @@ def get_unsplash_image(topic, used_images=None):
         print(f"  ❌ Unsplash error: {e}")
         return None, None, None
 
+def create_fallback_banner(topic, img_path):
+    """Create a sleek fallback hero banner image using PIL if Unsplash is unavailable."""
+    from PIL import Image, ImageDraw
+    width, height = 1200, 630
+    img = Image.new('RGB', (width, height), color=(15, 23, 42))  # Dark slate background
+    draw = ImageDraw.Draw(img)
+    
+    # Draw accent borders
+    draw.rectangle([0, 0, width, 8], fill=(59, 130, 246))        # Top blue accent
+    draw.rectangle([0, height - 8, width, height], fill=(139, 92, 246))  # Bottom purple accent
+    
+    img.save(img_path, format='PNG', optimize=True)
+    print(f"  🎨 Created fallback hero banner image at {img_path}")
+    return img_path, None
+
 def generate_and_save_image(topic, day):
-    """Download hero banner image from Unsplash and compress it."""
+    """Download hero banner image from Unsplash or create a fallback image."""
     img_dir = f"assets/img/posts/day-{day}"
     os.makedirs(img_dir, exist_ok=True)
     img_path = f"{img_dir}/1-hero-banner.png"
@@ -478,28 +494,25 @@ def generate_and_save_image(topic, day):
         except Exception as e:
             print(f"  ⚠️  Could not load used images: {e}")
     
-    # Check if Unsplash API key is available - fail fast if not
+    # Check if Unsplash API key is available
     if not UNSPLASH_ACCESS_KEY:
-        raise Exception("Unsplash API key not configured! Cannot generate images. Set UNSPLASH_ACCESS_KEY environment variable.")
+        print("  ⚠️  UNSPLASH_ACCESS_KEY not configured. Generating fallback banner image...")
+        return create_fallback_banner(topic, img_path)
     
     # Get image from Unsplash (with deduplication and fallback searches)
     try:
         img, photographer, image_url = get_unsplash_image(topic, used_images)
         if img:
-            # Determine format based on compression result
-            # Save with optimization
             img.save(img_path, format='PNG', optimize=True)
-            
-            # Check final file size
             final_size = os.path.getsize(img_path) / 1024
             print(f"  ✅ Saved unique image by {photographer} ({final_size:.1f}KB)")
             return img_path, image_url
         else:
-            raise Exception("No suitable images found on Unsplash even with fallback searches")
+            print("  ⚠️  No suitable Unsplash image found. Generating fallback banner...")
+            return create_fallback_banner(topic, img_path)
     except Exception as e:
-        print(f"  ❌ Fatal: Could not fetch any image from Unsplash: {e}")
-        print(f"  ⚠️  Stopping execution - image is required for post")
-        raise Exception(f"Failed to fetch hero image: {e}")
+        print(f"  ⚠️  Unsplash image fetch failed ({e}). Generating fallback banner...")
+        return create_fallback_banner(topic, img_path)
 
 def upload_to_github(md_filename, md_content, img_path, status_data=None):
     """Upload markdown post, image, and status.json to GitHub repository."""

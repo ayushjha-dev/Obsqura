@@ -27,7 +27,7 @@ UNSPLASH_ACCESS_KEY = os.getenv("UNSPLASH_ACCESS_KEY")
 REPO_NAME = "ayushjha-dev/Obsqura"
 TOPICS_FILE = "topics.txt"
 STATUS_FILE = "tools/status.json"
-GEMINI_MODEL = "gemini-2.5-flash-lite"
+GEMINI_MODEL = "gemini-3.1-flash-lite"
 
 # Validate required environment variables
 if not GEMINI_API_KEY:

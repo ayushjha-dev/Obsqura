@@ -88,7 +88,7 @@ def generate_blog_content(topic, details, day):
     DETAILS: {details}
 
     CRITICAL YAML FORMATTING RULES:
-    - The title field MUST be enclosed in double quotes
+    - The title, description, and alt fields MUST be enclosed in double quotes ("...")
     - Each YAML field must be on its own line with proper spacing
     - Ensure proper indentation (2 spaces) for nested fields
     - Do NOT use colons or special characters in unquoted strings
@@ -101,21 +101,21 @@ def generate_blog_content(topic, details, day):
     tags: [Tag1, Tag2, Tag3]
     image:
       path: /assets/img/posts/day-1/1-hero-banner.png
-      alt: Description of the image
-    description: Brief description of the post
+      alt: "Description of the image"
+    description: "Brief description of the post"
     ---
 
     STRICT REQUIREMENTS:
     1. Output valid Jekyll Front Matter with these exact fields:
-       - title: "YOUR TITLE HERE" (MUST be quoted, engaging, SEO-optimized)
+       - title: "YOUR TITLE HERE" (MUST be quoted in double quotes, engaging, SEO-optimized)
        - date: {get_ist_time().strftime('%Y-%m-%d %H:%M:%S %z')}
        - author: ayushjha
        - categories: [Tutorials, Industry Insights]
        - tags: (5-7 relevant tags in an array)
        - image:
            path: /assets/img/posts/day-{day}/1-hero-banner.png
-           alt: (descriptive alt text - keep it short and descriptive)
-       - description: (compelling 150-160 char meta description - keep it concise)
+           alt: "descriptive alt text" (MUST be quoted in double quotes)
+       - description: "compelling 150-160 char meta description" (MUST be quoted in double quotes)
     
     2. VISUAL APPEAL - Make it look like a professional blog:
        - Start with an engaging hook (1-2 sentences that grab attention)
@@ -223,24 +223,19 @@ def validate_and_clean_content(content):
         body_content = yaml_match.group(2)
         
         # Fix common YAML issues:
-        # 1. Ensure title is quoted if it contains colons or special characters
-        title_match = re.search(r'^title:\s*(.+)$', yaml_content, re.MULTILINE)
-        if title_match:
-            title_value = title_match.group(1).strip()
-            # Check if title is not already quoted and contains special chars
-            if not (title_value.startswith('"') and title_value.endswith('"')):
-                # Quote the title if it contains colons, emojis, or other special chars
-                if ':' in title_value or any(ord(c) > 127 for c in title_value):
-                    quoted_title = f'"{title_value}"'
-                    yaml_content = re.sub(
-                        r'^title:\s*.+$',
-                        f'title: {quoted_title}',
-                        yaml_content,
-                        count=1,
-                        flags=re.MULTILINE
-                    )
-                    print(f"  ✓ Fixed title quoting")
-        
+        # 1. Ensure title, description, and alt fields are safely quoted
+        for field in ['title', 'description', 'alt']:
+            pattern = rf'^(\s*{field}:\s*)(.+)$'
+            match = re.search(pattern, yaml_content, re.MULTILINE)
+            if match:
+                val = match.group(2).strip()
+                is_quoted = (val.startswith('"') and val.endswith('"')) or (val.startswith("'") and val.endswith("'"))
+                if not is_quoted:
+                    clean_val = val.strip('"\'').replace('"', '\\"')
+                    quoted_val = f'"{clean_val}"'
+                    yaml_content = yaml_content[:match.start(2)] + quoted_val + yaml_content[match.end(2):]
+                    print(f"  ✓ Fixed {field} quoting")
+
         # 2. Ensure proper newlines between fields (no fields concatenated)
         # This fixes issues like "date: 2026-01-09 15:27:18 +0530author: ayushjha"
         yaml_content = re.sub(r'(\+\d{4})([a-z])', r'\1\n\2', yaml_content)
@@ -253,7 +248,17 @@ def validate_and_clean_content(content):
             except yaml.YAMLError as e:
                 print(f"  ⚠️  YAML validation error: {e}")
                 print(f"  Attempting auto-fix...")
-                # Additional fixes can be added here based on common errors
+                for field in ['title', 'description', 'alt']:
+                    pattern = rf'^(\s*{field}:\s*)(.+)$'
+                    match = re.search(pattern, yaml_content, re.MULTILINE)
+                    if match:
+                        val = match.group(2).strip().strip('"\'').replace('"', '\\"')
+                        yaml_content = yaml_content[:match.start(2)] + f'"{val}"' + yaml_content[match.end(2):]
+                try:
+                    yaml.safe_load(yaml_content)
+                    print(f"  ✓ Auto-fix successful, YAML is valid.")
+                except yaml.YAMLError as err:
+                    raise ValueError(f"CRITICAL: Failed to produce valid YAML front matter: {err}")
         
         # Reconstruct the content
         content = f"---\n{yaml_content}\n---\n{body_content}"

@@ -7,7 +7,7 @@ tags: [XSS, CrossSiteScripting, WebSecurity, InjectionAttacks, DOMXSS, Cybersecu
 image:
   path: /assets/img/posts/day-61/1-hero-banner.png
   alt: Visual representation of Cross-Site Scripting (XSS) attack vector with browser code and a malicious script.
-description: Dive deep into XSS: reflected, stored, and DOM-based attacks. Learn modern mitigation techniques to secure your web applications from browser injection vulnerabilities.
+description: "Dive deep into XSS: reflected, stored, and DOM-based attacks. Learn modern mitigation techniques to secure your web applications from browser injection vulnerabilities."
 ---
 ## Introduction
 

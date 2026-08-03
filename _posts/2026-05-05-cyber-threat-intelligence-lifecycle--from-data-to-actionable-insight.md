@@ -7,7 +7,7 @@ tags: [CTI, Cybersecurity, ThreatIntelligence, SOC, IncidentResponse, DataAnalys
 image:
   path: /assets/img/posts/day-99/1-hero-banner.png
   alt: Diagram showing the Cyber Threat Intelligence lifecycle stages - collection, processing, analysis, dissemination
-description: Unlock the power of Cyber Threat Intelligence! Learn its lifecycle: collection, processing, analysis, and dissemination to turn raw data into actionable insights for robust cybersecurity.
+description: "Unlock the power of Cyber Threat Intelligence! Learn its lifecycle: collection, processing, analysis, and dissemination to turn raw data into actionable insights for robust cybersecurity."
 ---
 ## Introduction
 

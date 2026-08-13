@@ -1,6 +1,6 @@
 {
-  "next_day": 163,
-  "last_processed": "Cyber Threat Simulation: Testing Your Security Controls",
+  "next_day": 164,
+  "last_processed": "Rootkit Detection: Finding Hidden Malware in the OS",
   "used_images": [
     "https://images.unsplash.com/photo-1496368077930-c1e31b4e5b44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTR8&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1519575706483-221027bfbb31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTV8&ixlib=rb-4.1.0&q=80&w=1080",
@@ -162,6 +162,7 @@
     "https://images.unsplash.com/photo-1642229408339-572fa3328d10?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw3fHxjaXJjdWl0JTIwYm9hcmQlMjBkaXNhc3NlbWJseXxlbnwwfDB8fHwxNzg2MjMzMzUyfDA&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1664188575692-2637d3a8c9aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwxMHx8YXZpb25pY3MlMjBjeWJlciUyMHNlY3VyaXR5fGVufDB8MHx8fDE3ODYzMTk5MzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1775994121064-e75fa6f3e84c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw1fHxlbWFpbCUyMGZpcmV3YWxsJTIwZmlsdGVyfGVufDB8MHx8fDE3ODY0MDY1MDJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "https://images.unsplash.com/photo-1643917854632-137e2a61310b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwxMHx8cGVuZXRyYXRpb24lMjB0ZXN0aW5nJTIwZGFzaGJvYXJkfGVufDB8MHx8fDE3ODY0OTMyNzN8MA&ixlib=rb-4.1.0&q=80&w=1080"
+    "https://images.unsplash.com/photo-1643917854632-137e2a61310b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwxMHx8cGVuZXRyYXRpb24lMjB0ZXN0aW5nJTIwZGFzaGJvYXJkfGVufDB8MHx8fDE3ODY0OTMyNzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "https://images.unsplash.com/photo-1568716353609-12ddc5c67f04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwxMHx8c3VidGVycmFuZWFuJTIwYmluYXJ5JTIwY29kZXxlbnwwfDB8fHwxNzg2NTc5NjUxfDA&ixlib=rb-4.1.0&q=80&w=1080"
   ]
 }

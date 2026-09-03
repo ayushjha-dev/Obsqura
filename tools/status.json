@@ -1,6 +1,6 @@
 {
-  "next_day": 184,
-  "last_processed": "Cyber Sanity Checks: Validating Your Security Assumptions",
+  "next_day": 185,
+  "last_processed": "Secure Print Management: The Often-Overlooked Office Vulnerability",
   "used_images": [
     "https://images.unsplash.com/photo-1496368077930-c1e31b4e5b44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTR8&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1519575706483-221027bfbb31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTV8&ixlib=rb-4.1.0&q=80&w=1080",
@@ -183,6 +183,7 @@
     "https://images.unsplash.com/photo-1757405909200-5f19f1f39eae?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw5fHxkaWdpdGFsJTIwY2VydGlmaWNhdGUlMjBpbmZyYXN0cnVjdHVyZXxlbnwwfDB8fHwxNzg4MDUzNDQ5fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1614064548237-096f735f344f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwxfHxjeWJlcnNlY3VyaXR5JTIwZ2FtaW5nJTIwbmVvbnxlbnwwfDB8fHwxNzg4MTM5ODUzfDA&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1654375408506-382720d3e05f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw0fHxzdGVhbHRoJTIwY3liZXIlMjBzdXJ2ZWlsbGFuY2V8ZW58MHwwfHx8MTc4ODIyNzkzNHww&ixlib=rb-4.1.0&q=80&w=1080",
-    "https://images.unsplash.com/photo-1751448555253-f39c06e29d82?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwzfHxzZWN1cml0eSUyMGF1ZGl0JTIwdmVyaWZ5fGVufDB8MHx8fDE3ODgzMTE3NDd8MA&ixlib=rb-4.1.0&q=80&w=1080"
+    "https://images.unsplash.com/photo-1751448555253-f39c06e29d82?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwzfHxzZWN1cml0eSUyMGF1ZGl0JTIwdmVyaWZ5fGVufDB8MHx8fDE3ODgzMTE3NDd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "https://images.unsplash.com/photo-1524783091248-e1ea991d104f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw1fHxvZmZpY2UlMjBwcmludGVyJTIwc2VjdXJpdHl8ZW58MHwwfHx8MTc4ODM5ODM4MXww&ixlib=rb-4.1.0&q=80&w=1080"
   ]
 }

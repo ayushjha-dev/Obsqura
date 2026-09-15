@@ -1,6 +1,6 @@
 {
-  "next_day": 196,
-  "last_processed": "Cyber Threat Profiling: Understanding Your Specific Adversaries",
+  "next_day": 197,
+  "last_processed": "Containerized Malware: Threats Hidden in Container Images",
   "used_images": [
     "https://images.unsplash.com/photo-1496368077930-c1e31b4e5b44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTR8&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1519575706483-221027bfbb31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTV8&ixlib=rb-4.1.0&q=80&w=1080",
@@ -195,6 +195,7 @@
     "https://images.unsplash.com/photo-1545987796-200677ee1011?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwxfHxuZXR3b3JrJTIwbm9kZXMlMjBjb25uZWN0aW9ufGVufDB8MHx8fDE3ODkwODk3Mzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1606495813362-8efff01b8573?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw3fHxzbWFydHBob25lJTIwcGhpc2hpbmclMjBhbGVydHxlbnwwfDB8fHwxNzg5MTc2MjI3fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1641964656616-1cafb80fa58f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwyfHxtaW5pbWFsaXN0JTIwZGF0YSUyMHBydW5pbmd8ZW58MHwwfHx8MTc4OTI2MjQ2OHww&ixlib=rb-4.1.0&q=80&w=1080",
-    "https://images.unsplash.com/photo-1586999024853-b3e54b0ccade?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwxMHx8YWR2ZXJzYXJ5JTIwcGVyc29uYSUyMHByb2ZpbGluZ3xlbnwwfDB8fHwxNzg5MzQ5MTQwfDA&ixlib=rb-4.1.0&q=80&w=1080"
+    "https://images.unsplash.com/photo-1586999024853-b3e54b0ccade?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwxMHx8YWR2ZXJzYXJ5JTIwcGVyc29uYSUyMHByb2ZpbGluZ3xlbnwwfDB8fHwxNzg5MzQ5MTQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "https://images.unsplash.com/photo-1646627927863-19874c27316b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwxfHxkb2NrZXIlMjBjb250YWluZXIlMjBleHBsb2l0fGVufDB8MHx8fDE3ODk0MzY3NTR8MA&ixlib=rb-4.1.0&q=80&w=1080"
   ]
 }

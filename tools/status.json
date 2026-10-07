@@ -1,6 +1,6 @@
 {
-  "next_day": 218,
-  "last_processed": "Biometric Data Privacy: Legal and Ethical Considerations",
+  "next_day": 219,
+  "last_processed": "Real-Time Threat Detection: Building Low-Latency Security Pipelines",
   "used_images": [
     "https://images.unsplash.com/photo-1496368077930-c1e31b4e5b44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTR8&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1519575706483-221027bfbb31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTU0MTB8MHwxfGFsbHx8fHx8fHx8fDE3NjgxMDIzNTV8&ixlib=rb-4.1.0&q=80&w=1080",
@@ -217,6 +217,7 @@
     "https://images.unsplash.com/photo-1620825937374-87fc7d6bddc2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwzfHxzdGFydHVwJTIwY3liZXJzZWN1cml0eSUyMGluZnJhc3RydWN0dXJlfGVufDB8MHx8fDE3OTA5OTM2NzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1584433144859-1fc3ab64a957?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHw0fHxlbmNyeXB0ZWQlMjBkaWdpdGFsJTIwY3JlZGVudGlhbHN8ZW58MHwwfHx8MTc5MTA4MjE2M3ww&ixlib=rb-4.1.0&q=80&w=1080",
     "https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwyfHxjeWJlcnNlY3VyaXR5JTIwdGVjaG5vbG9neXxlbnwwfDB8fHwxNzkxMTY2NjIwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "https://images.unsplash.com/photo-1547637974-a0d8a38ebbda?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwxMHx8YmlvbWV0cmljJTIwZmFjaWFsJTIwcmVjb2duaXRpb258ZW58MHwwfHx8MTc5MTI1NjQwMXww&ixlib=rb-4.1.0&q=80&w=1080"
+    "https://images.unsplash.com/photo-1547637974-a0d8a38ebbda?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwxMHx8YmlvbWV0cmljJTIwZmFjaWFsJTIwcmVjb2duaXRpb258ZW58MHwwfHx8MTc5MTI1NjQwMXww&ixlib=rb-4.1.0&q=80&w=1080",
+    "https://images.unsplash.com/photo-1557597774-9d273605dfa9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NTQ1NDZ8MHwxfHNlYXJjaHwyfHxkYXRhJTIwc3RyZWFtJTIwc3VydmVpbGxhbmNlfGVufDB8MHx8fDE3OTEzNDA3MTR8MA&ixlib=rb-4.1.0&q=80&w=1080"
   ]
 }
